@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>PRIMEBIT — لوحة التحكم</title>
+
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --grad: linear-gradient(135deg, hsl(210,90%,58%), hsl(198,95%,52%));
+            --bg: #06070B;
+            --card: rgba(255,255,255,0.03);
+            --border: rgba(255,255,255,0.09);
+            --txt: #E2E8F0;
+            --muted: #94A3B8;
+            --bright: #fff;
+            --accent: hsl(201,95%,60%);
+            --danger: #EF4444;
+            --green: #10B981;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background:var(--bg); color:var(--txt); font-family:'Cairo',sans-serif; min-height:100vh; }
+        a { color:var(--accent); }
+        .hidden { display:none !important; }
+
+        /* Login */
+        .login-wrap { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
+        .login-box { background:rgba(16,17,24,0.9); border:1px solid var(--border); border-radius:20px; padding:40px 32px; width:100%; max-width:400px; }
+        .login-logo { display:flex; align-items:center; gap:10px; justify-content:center; margin-bottom:8px; }
+        .login-logo img { width:40px; height:40px; }
+        .login-logo span { font-family:'Outfit',sans-serif; font-weight:800; font-size:1.4rem; color:var(--bright); letter-spacing:1px; }
+        .login-sub { text-align:center; color:var(--muted); font-size:0.85rem; margin-bottom:28px; }
+        .field { margin-bottom:16px; }
+        .field label { display:block; font-size:0.82rem; color:var(--muted); margin-bottom:6px; font-weight:600; }
+        .field input { width:100%; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:9px; padding:12px 14px; color:var(--bright); font-family:inherit; font-size:0.95rem; outline:none; transition:.2s; }
+        .field input:focus { border-color:var(--accent); background:rgba(255,255,255,0.07); }
+        .btn { width:100%; background:var(--grad); color:#fff; border:none; border-radius:9px; padding:13px; font-family:inherit; font-weight:700; font-size:0.98rem; cursor:pointer; transition:.2s; display:flex; align-items:center; justify-content:center; gap:8px; }
+        .btn:hover { filter:brightness(1.1); transform:translateY(-1px); }
+        .btn:disabled { opacity:.6; cursor:not-allowed; }
+        .btn-ghost { background:transparent; border:1px solid var(--border); color:var(--muted); margin-top:12px; }
+        .msg { font-size:0.85rem; text-align:center; margin-top:14px; min-height:20px; }
+        .msg.err { color:var(--danger); }
+        .msg.ok { color:var(--green); }
+
+        /* Dashboard */
+        .topbar { display:flex; align-items:center; justify-content:space-between; padding:16px 24px; border-bottom:1px solid var(--border); background:rgba(16,17,24,0.6); position:sticky; top:0; z-index:10; backdrop-filter:blur(10px); }
+        .topbar .brand { display:flex; align-items:center; gap:10px; font-family:'Outfit',sans-serif; font-weight:700; color:var(--bright); }
+        .topbar .brand img { width:32px; height:32px; }
+        .who { font-size:0.8rem; color:var(--muted); }
+        .logout { background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.3); color:var(--danger); border-radius:8px; padding:8px 14px; cursor:pointer; font-family:inherit; font-size:0.85rem; font-weight:600; }
+        .logout:hover { background:rgba(239,68,68,0.2); }
+
+        .tabs { display:flex; gap:4px; padding:16px 24px 0; flex-wrap:wrap; }
+        .tab { background:transparent; border:none; border-bottom:2px solid transparent; color:var(--muted); font-family:inherit; font-weight:700; font-size:0.92rem; padding:10px 16px; cursor:pointer; display:flex; align-items:center; gap:8px; }
+        .tab.active { color:var(--bright); border-bottom-color:var(--accent); }
+        .tab .count { background:rgba(255,255,255,0.1); border-radius:20px; font-size:0.72rem; padding:1px 8px; }
+
+        .panel { padding:24px; max-width:1100px; margin:0 auto; }
+        .panel.hidden { display:none; }
+        .toolbar { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
+        .toolbar h2 { font-size:1.15rem; color:var(--bright); }
+        .refresh { background:var(--card); border:1px solid var(--border); color:var(--muted); border-radius:8px; padding:8px 14px; cursor:pointer; font-family:inherit; font-size:0.82rem; }
+        .refresh:hover { color:var(--bright); }
+
+        .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:14px; }
+        .card-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; flex-wrap:wrap; }
+        .card-name { font-weight:700; color:var(--bright); display:flex; align-items:center; gap:8px; }
+        .card-time { font-size:0.72rem; color:var(--muted); }
+        .card-row { font-size:0.88rem; color:var(--muted); margin-bottom:5px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+        .card-row i { width:16px; color:var(--accent); }
+        .card-row a { text-decoration:none; }
+        .subject { color:var(--accent); font-weight:600; }
+        .body-box { margin-top:10px; background:rgba(0,0,0,0.25); border-radius:8px; padding:10px 14px; border-right:2px solid var(--border); color:var(--txt); font-size:0.86rem; line-height:1.6; white-space:pre-wrap; }
+        .pill { display:inline-block; background:rgba(255,255,255,0.06); border:1px solid var(--border); border-radius:20px; padding:2px 10px; font-size:0.75rem; color:var(--txt); }
+        .price { color:var(--green); font-weight:700; }
+        .empty { text-align:center; padding:60px 20px; color:var(--muted); }
+        .empty i { font-size:2.5rem; opacity:.4; display:block; margin-bottom:12px; }
+
+        /* Search + stats + status */
+        .search-box { width:100%; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:9px; padding:11px 14px; color:var(--bright); font-family:inherit; font-size:0.92rem; outline:none; margin-bottom:16px; }
+        .search-box:focus { border-color:var(--accent); }
+        .stats-bar { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+        .stat-chip { flex:1; min-width:120px; background:var(--card); border:1px solid var(--border); border-radius:10px; padding:12px 16px; }
+        .stat-chip .n { font-family:'Outfit',sans-serif; font-size:1.5rem; font-weight:800; color:var(--bright); }
+        .stat-chip .l { font-size:0.75rem; color:var(--muted); }
+        .stat-chip.accent .n { color:var(--accent); }
+        .stat-chip.green .n { color:var(--green); }
+        .card.is-new { border-color:rgba(11,106,159,0.5); box-shadow:0 0 0 1px rgba(11,106,159,0.25); }
+        .card.is-new::before { content:''; position:absolute; top:0; right:0; width:4px; height:100%; background:var(--accent); border-radius:0 12px 12px 0; }
+        .card { position:relative; }
+        .card.handled { opacity:0.62; }
+        .badge-new { background:rgba(11,106,159,0.18); border:1px solid rgba(11,106,159,0.4); color:var(--accent); border-radius:20px; padding:2px 10px; font-size:0.7rem; font-weight:700; }
+        .btn-status { background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.3); color:var(--green); border-radius:7px; padding:7px 12px; cursor:pointer; font-family:inherit; font-size:0.8rem; }
+        .btn-status:hover { background:rgba(16,185,129,0.2); }
+        .btn-status.undo { background:rgba(255,255,255,0.05); border-color:var(--border); color:var(--muted); }
+
+        /* Team */
+        .team-add { display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap; }
+        .team-add input { flex:1; min-width:200px; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:9px; padding:11px 14px; color:var(--bright); font-family:inherit; outline:none; }
+        .team-add input:focus { border-color:var(--accent); }
+        .team-add button { background:var(--grad); color:#fff; border:none; border-radius:9px; padding:0 22px; font-family:inherit; font-weight:700; cursor:pointer; }
+        .team-hint { font-size:0.8rem; color:var(--muted); background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin-bottom:20px; line-height:1.6; }
+        .member { display:flex; align-items:center; justify-content:space-between; gap:12px; background:var(--card); border:1px solid var(--border); border-radius:10px; padding:12px 16px; margin-bottom:10px; }
+        .member .info { display:flex; align-items:center; gap:10px; }
+        .member .av { width:34px; height:34px; border-radius:50%; background:var(--grad); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; text-transform:uppercase; }
+        .member .em { color:var(--bright); font-size:0.9rem; }
+        .member .role { font-size:0.72rem; color:var(--muted); }
+        .remove { background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.25); color:var(--danger); border-radius:7px; padding:7px 12px; cursor:pointer; font-family:inherit; font-size:0.8rem; }
+        .remove:hover { background:rgba(239,68,68,0.2); }
+        .badge-owner { background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:var(--green); border-radius:20px; padding:2px 10px; font-size:0.72rem; }
+    </style>
+</head>
+<body>
+
+    <!-- LOGIN -->
+    <div class="login-wrap" id="login-view">
+        <div class="login-box">
+            <div class="login-logo">
+                <img src="assets/logo.svg" alt="PRIMEBIT">
+                <span>PRIME<span style="color:var(--accent)">BIT</span></span>
+            </div>
+            <p class="login-sub">لوحة التحكم — الدخول للمصرّح لهم فقط</p>
+            <div class="field">
+                <label>البريد الإلكتروني</label>
+                <input type="email" id="login-email" placeholder="you@example.com" autocomplete="username">
+            </div>
+            <div class="field">
+                <label>كلمة المرور</label>
+                <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password">
+            </div>
+            <button class="btn" id="btn-login"><i class="fa-solid fa-right-to-bracket"></i> تسجيل الدخول</button>
+            <button class="btn btn-ghost" id="btn-signup">إنشاء حساب جديد (للفريق)</button>
+            <div class="msg" id="login-msg"></div>
+        </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dash-view" class="hidden">
+        <div class="topbar">
+            <div class="brand"><img src="assets/logo.svg" alt="PRIMEBIT"> لوحة التحكم</div>
+            <div style="display:flex; align-items:center; gap:14px;">
+                <span class="who" id="who"></span>
+                <button class="logout" id="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> خروج</button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="messages"><i class="fa-solid fa-envelope"></i> الرسائل <span class="count" id="count-messages">0</span></button>
+            <button class="tab" data-tab="leads"><i class="fa-solid fa-calculator"></i> طلبات التسعير <span class="count" id="count-leads">0</span></button>
+            <button class="tab" data-tab="team"><i class="fa-solid fa-users"></i> الفريق والصلاحيات</button>
+        </div>
+
+        <div class="panel" id="panel-messages">
+            <div class="toolbar"><h2>رسائل التواصل</h2>
+                <div style="display:flex;gap:8px">
+                    <button class="refresh" onclick="exportExcel('messages')"><i class="fa-solid fa-file-excel" style="color:var(--green)"></i> تنزيل Excel</button>
+                    <button class="refresh" onclick="loadMessages()"><i class="fa-solid fa-rotate"></i> تحديث</button>
+                </div>
+            </div>
+            <div class="stats-bar" id="stats-messages"></div>
+            <input class="search-box" id="search-messages" placeholder="🔍 ابحث بالاسم أو البريد أو الموضوع..." oninput="renderMessages()">
+            <div id="messages-list"></div>
+        </div>
+
+        <div class="panel hidden" id="panel-leads">
+            <div class="toolbar"><h2>طلبات تقدير التكلفة</h2>
+                <div style="display:flex;gap:8px">
+                    <button class="refresh" onclick="exportExcel('leads')"><i class="fa-solid fa-file-excel" style="color:var(--green)"></i> تنزيل Excel</button>
+                    <button class="refresh" onclick="loadLeads()"><i class="fa-solid fa-rotate"></i> تحديث</button>
+                </div>
+            </div>
+            <div class="stats-bar" id="stats-leads"></div>
+            <input class="search-box" id="search-leads" placeholder="🔍 ابحث بنوع المشروع..." oninput="renderLeads()">
+            <div id="leads-list"></div>
+        </div>
+
+        <div class="panel hidden" id="panel-team">
+            <div class="toolbar"><h2>إدارة الصلاحيات</h2><button class="refresh" onclick="loadTeam()"><i class="fa-solid fa-rotate"></i> تحديث</button></div>
+            <div class="team-hint">
+                <i class="fa-solid fa-circle-info" style="color:var(--accent)"></i>
+                أضف بريد زميلك هنا ليصبح مصرّحاً له. بعدها يفتح هذه الصفحة ويضغط <strong>"إنشاء حساب جديد"</strong> بنفس البريد ليدخل ويشاهد البيانات. لإلغاء صلاحيته، احذفه من القائمة.
+            </div>
+            <div class="team-add">
+                <input type="email" id="team-email" placeholder="teammate@example.com">
+                <button id="btn-add-member"><i class="fa-solid fa-plus"></i> إضافة</button>
+            </div>
+            <div class="msg" id="team-msg" style="text-align:right"></div>
+            <div id="team-list"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script>
+        const SUPABASE_URL = 'https://scqnljrwegyouqszwfiy.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_dyE5_6AL46G6VauBbzhZ1Q_R1rLp-MF';
+        const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        const $ = id => document.getElementById(id);
+        const esc = s => (s == null ? '' : String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])));
+        const fmtDate = s => { try { return new Date(s).toLocaleString('ar-EG', {dateStyle:'medium', timeStyle:'short'}); } catch(e){ return s; } };
+
+        let currentEmail = '';
+        let messagesData = [];
+        let leadsData = [];
+
+        /* ---------- AUTH ---------- */
+        async function doLogin() {
+            const email = $('login-email').value.trim();
+            const pass = $('login-pass').value;
+            if (!email || !pass) return setMsg('login-msg','أدخل البريد وكلمة المرور','err');
+            $('btn-login').disabled = true;
+            const { error } = await sb.auth.signInWithPassword({ email, password: pass });
+            $('btn-login').disabled = false;
+            if (error) return setMsg('login-msg', 'فشل الدخول: ' + error.message, 'err');
+            checkSession();
+        }
+
+        async function doSignup() {
+            const email = $('login-email').value.trim();
+            const pass = $('login-pass').value;
+            if (!email || pass.length < 6) return setMsg('login-msg','أدخل بريداً وكلمة مرور (6 أحرف على الأقل)','err');
+            $('btn-signup').disabled = true;
+            const { data, error } = await sb.auth.signUp({ email, password: pass });
+            $('btn-signup').disabled = false;
+            if (error) return setMsg('login-msg', 'تعذّر الإنشاء: ' + error.message, 'err');
+            if (data.session) { checkSession(); }
+            else { setMsg('login-msg','تم إنشاء الحساب! تحقق من بريدك لتأكيد الحساب ثم سجّل الدخول.','ok'); }
+        }
+
+        async function doLogout() {
+            await sb.auth.signOut();
+            location.reload();
+        }
+
+        async function checkSession() {
+            const { data:{ session } } = await sb.auth.getSession();
+            if (!session) { showLogin(); return; }
+            currentEmail = session.user.email;
+            // Verify this user is an allowed admin by attempting a gated read
+            const { error } = await sb.from('primebit_admins').select('email').limit(1);
+            if (error) {
+                setMsg('login-msg','هذا الحساب غير مصرّح له بعد. تواصل مع المسؤول لإضافة بريدك.','err');
+                await sb.auth.signOut();
+                showLogin();
+                return;
+            }
+            showDash();
+        }
+
+        function setMsg(id, text, cls) { const el=$(id); el.textContent=text; el.className='msg'+(cls?' '+cls:''); }
+        function showLogin() { $('login-view').classList.remove('hidden'); $('dash-view').classList.add('hidden'); }
+        function showDash() {
+            $('login-view').classList.add('hidden');
+            $('dash-view').classList.remove('hidden');
+            $('who').textContent = currentEmail;
+            loadMessages(); loadLeads(); loadTeam();
+        }
+
+        /* ---------- DATA ---------- */
+        async function loadMessages() {
+            const { data, error } = await sb.from('primebit_contact_messages').select('*').order('created_at',{ascending:false});
+            if (error) { $('messages-list').innerHTML = errBox(error.message); return; }
+            messagesData = data;
+            renderMessages();
+        }
+
+        function renderMessages() {
+            const box = $('messages-list');
+            const q = ($('search-messages').value || '').trim().toLowerCase();
+            const all = messagesData;
+            const unread = all.filter(m => m.status === 'new').length;
+            const weekAgo = Date.now() - 7*24*60*60*1000;
+            const thisWeek = all.filter(m => new Date(m.created_at).getTime() > weekAgo).length;
+            $('count-messages').textContent = unread;
+            $('stats-messages').innerHTML = `
+                <div class="stat-chip"><div class="n">${all.length}</div><div class="l">إجمالي الرسائل</div></div>
+                <div class="stat-chip accent"><div class="n">${unread}</div><div class="l">جديدة لم تُتابع</div></div>
+                <div class="stat-chip"><div class="n">${thisWeek}</div><div class="l">خلال 7 أيام</div></div>`;
+
+            const data = q ? all.filter(m => [m.name,m.email,m.subject,m.message].some(v => (v||'').toLowerCase().includes(q))) : all;
+            if (!all.length) { box.innerHTML = emptyBox('fa-envelope-open','لا توجد رسائل بعد'); return; }
+            if (!data.length) { box.innerHTML = emptyBox('fa-magnifying-glass','لا نتائج مطابقة للبحث'); return; }
+            box.innerHTML = data.map(m => {
+                const isNew = m.status === 'new';
+                return `
+                <div class="card ${isNew?'is-new':'handled'}">
+                    <div class="card-head">
+                        <div class="card-name"><i class="fa-solid fa-user" style="color:var(--accent)"></i> ${esc(m.name)} ${isNew?'<span class="badge-new">جديد</span>':''}</div>
+                        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                            <span class="card-time">${fmtDate(m.created_at)}</span>
+                            <button class="btn-status ${isNew?'':'undo'}" onclick="toggleStatus('primebit_contact_messages','${esc(m.id)}','${isNew?'handled':'new'}')">
+                                <i class="fa-solid ${isNew?'fa-check':'fa-rotate-left'}"></i> ${isNew?'تمّت المتابعة':'تعليم كجديد'}</button>
+                            <button class="remove" onclick="deleteRow('primebit_contact_messages','${esc(m.id)}', this)"><i class="fa-solid fa-trash"></i> حذف</button>
+                        </div>
+                    </div>
+                    <div class="card-row"><i class="fa-solid fa-envelope"></i> <a href="mailto:${esc(m.email)}">${esc(m.email)}</a></div>
+                    ${m.phone ? `<div class="card-row"><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/${esc((m.phone||'').replace(/\D/g,''))}" target="_blank">${esc(m.phone)}</a></div>` : ''}
+                    <div class="card-row"><i class="fa-solid fa-tag"></i> <span class="subject">${esc(m.subject)}</span></div>
+                    <div class="body-box">${esc(m.message)}</div>
+                </div>`;
+            }).join('');
+        }
+
+        const typeAr = { web:'تطبيق ويب', ecommerce:'متجر إلكتروني', mobile:'تطبيق جوال', brokerage:'فينتك' };
+
+        async function loadLeads() {
+            const { data, error } = await sb.from('primebit_project_leads').select('*').order('created_at',{ascending:false});
+            if (error) { $('leads-list').innerHTML = errBox(error.message); return; }
+            leadsData = data;
+            renderLeads();
+        }
+
+        function renderLeads() {
+            const box = $('leads-list');
+            const q = ($('search-leads').value || '').trim().toLowerCase();
+            const all = leadsData;
+            const pipeline = all.reduce((s,l) => s + (l.estimated_price||0), 0);
+            const unread = all.filter(l => l.status === 'new').length;
+            $('count-leads').textContent = unread;
+            $('stats-leads').innerHTML = `
+                <div class="stat-chip"><div class="n">${all.length}</div><div class="l">إجمالي الطلبات</div></div>
+                <div class="stat-chip green"><div class="n">$${pipeline.toLocaleString()}</div><div class="l">إجمالي التقديرات</div></div>
+                <div class="stat-chip accent"><div class="n">${unread}</div><div class="l">جديدة لم تُتابع</div></div>`;
+
+            const data = q ? all.filter(l => (typeAr[l.project_type]||l.project_type||'').toLowerCase().includes(q)) : all;
+            if (!all.length) { box.innerHTML = emptyBox('fa-calculator','لا توجد طلبات تسعير بعد'); return; }
+            if (!data.length) { box.innerHTML = emptyBox('fa-magnifying-glass','لا نتائج مطابقة للبحث'); return; }
+            box.innerHTML = data.map(l => {
+                const isNew = l.status === 'new';
+                return `
+                <div class="card ${isNew?'is-new':'handled'}">
+                    <div class="card-head">
+                        <div class="card-name"><i class="fa-solid fa-cube" style="color:var(--accent)"></i> ${esc(typeAr[l.project_type]||l.project_type)} ${isNew?'<span class="badge-new">جديد</span>':''}</div>
+                        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                            <span class="card-time">${fmtDate(l.created_at)}</span>
+                            <button class="btn-status ${isNew?'':'undo'}" onclick="toggleStatus('primebit_project_leads','${esc(l.id)}','${isNew?'handled':'new'}')">
+                                <i class="fa-solid ${isNew?'fa-check':'fa-rotate-left'}"></i> ${isNew?'تمّت المتابعة':'تعليم كجديد'}</button>
+                            <button class="remove" onclick="deleteRow('primebit_project_leads','${esc(l.id)}', this)"><i class="fa-solid fa-trash"></i> حذف</button>
+                        </div>
+                    </div>
+                    <div class="card-row"><i class="fa-solid fa-money-bill"></i> <span class="price">$${(l.estimated_price||0).toLocaleString()}</span></div>
+                    <div class="card-row"><i class="fa-solid fa-layer-group"></i> ${esc(l.pages)} صفحة/شاشة</div>
+                    <div class="card-row"><i class="fa-solid fa-clock"></i> ${esc(l.timeline||'—')}</div>
+                    ${l.features ? `<div class="card-row"><i class="fa-solid fa-puzzle-piece"></i> ${esc(l.features).split(',').filter(Boolean).map(f=>`<span class="pill">${esc(f)}</span>`).join(' ')}</div>` : ''}
+                </div>`;
+            }).join('');
+        }
+
+        async function toggleStatus(table, id, newStatus) {
+            const { error } = await sb.from(table).update({ status: newStatus }).eq('id', id);
+            if (error) { alert('تعذّر التحديث: ' + error.message); return; }
+            const row = (table === 'primebit_contact_messages' ? messagesData : leadsData).find(r => r.id === id);
+            if (row) row.status = newStatus;
+            if (table === 'primebit_contact_messages') renderMessages(); else renderLeads();
+        }
+
+        async function loadTeam() {
+            const { data, error } = await sb.from('primebit_admins').select('*').order('created_at',{ascending:true});
+            const box = $('team-list');
+            if (error) { box.innerHTML = errBox(error.message); return; }
+            box.innerHTML = data.map(a => {
+                const isOwner = a.role === 'owner';
+                const isSelf = a.email.toLowerCase() === currentEmail.toLowerCase();
+                return `
+                <div class="member">
+                    <div class="info">
+                        <div class="av">${esc(a.email[0])}</div>
+                        <div>
+                            <div class="em">${esc(a.email)} ${isSelf?'<span class="role">(أنت)</span>':''}</div>
+                            <div class="role">${isOwner?'<span class="badge-owner">المالك</span>':'عضو'}</div>
+                        </div>
+                    </div>
+                    ${(isOwner||isSelf) ? '' : `<button class="remove" onclick="removeMember('${esc(a.email)}')"><i class="fa-solid fa-trash"></i> إزالة</button>`}
+                </div>`;
+            }).join('');
+        }
+
+        async function addMember() {
+            const email = $('team-email').value.trim().toLowerCase();
+            if (!email || !email.includes('@')) return setMsg('team-msg','أدخل بريداً صحيحاً','err');
+            const { error } = await sb.from('primebit_admins').insert({ email, role:'member', added_by: currentEmail });
+            if (error) return setMsg('team-msg','تعذّرت الإضافة: '+error.message,'err');
+            $('team-email').value = '';
+            setMsg('team-msg','تمت إضافة '+email+' بنجاح','ok');
+            loadTeam();
+        }
+
+        async function removeMember(email) {
+            if (!confirm('إزالة صلاحية '+email+'؟')) return;
+            const { error } = await sb.from('primebit_admins').delete().eq('email', email);
+            if (error) return setMsg('team-msg','تعذّر الحذف: '+error.message,'err');
+            loadTeam();
+        }
+
+        async function deleteRow(table, id, btn) {
+            if (!confirm('هل تريد حذف هذا العنصر نهائياً؟')) return;
+            if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>'; }
+            const { error } = await sb.from(table).delete().eq('id', id);
+            if (error) { alert('تعذّر الحذف: ' + error.message); if (btn){ btn.disabled=false; btn.innerHTML='<i class="fa-solid fa-trash"></i> حذف'; } return; }
+            if (table === 'primebit_contact_messages') loadMessages(); else loadLeads();
+        }
+
+        function exportExcel(kind) {
+            const statusAr = s => s === 'handled' ? 'تمّت المتابعة' : 'جديد';
+            let rows, sheetName, fileBase;
+            if (kind === 'messages') {
+                if (!messagesData.length) return alert('لا توجد رسائل للتصدير.');
+                rows = messagesData.map(m => ({
+                    'التاريخ': fmtDate(m.created_at),
+                    'الاسم': m.name || '',
+                    'البريد الإلكتروني': m.email || '',
+                    'الهاتف / واتساب': m.phone || '',
+                    'الموضوع': m.subject || '',
+                    'الرسالة': m.message || '',
+                    'الحالة': statusAr(m.status),
+                    'اللغة': m.lang || ''
+                }));
+                sheetName = 'الرسائل'; fileBase = 'PRIMEBIT_Messages';
+            } else {
+                if (!leadsData.length) return alert('لا توجد طلبات للتصدير.');
+                rows = leadsData.map(l => ({
+                    'التاريخ': fmtDate(l.created_at),
+                    'نوع المشروع': typeAr[l.project_type] || l.project_type || '',
+                    'السعر التقديري ($)': l.estimated_price || 0,
+                    'عدد الصفحات': l.pages || 0,
+                    'المدة': l.timeline || '',
+                    'المميزات': l.features || '',
+                    'الحالة': statusAr(l.status),
+                    'اللغة': l.lang || ''
+                }));
+                sheetName = 'طلبات التسعير'; fileBase = 'PRIMEBIT_Leads';
+            }
+            const ws = XLSX.utils.json_to_sheet(rows);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, sheetName);
+            const today = new Date().toISOString().slice(0,10);
+            XLSX.writeFile(wb, `${fileBase}_${today}.xlsx`);
+        }
+
+        function emptyBox(icon,text){ return `<div class="empty"><i class="fa-solid ${icon}"></i>${text}</div>`; }
+        function errBox(m){ return `<div class="empty"><i class="fa-solid fa-triangle-exclamation"></i>خطأ: ${esc(m)}</div>`; }
+
+        /* ---------- TABS ---------- */
+        document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+            document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+            t.classList.add('active');
+            ['messages','leads','team'].forEach(p => $('panel-'+p).classList.toggle('hidden', p !== t.dataset.tab));
+        }));
+
+        $('btn-login').addEventListener('click', doLogin);
+        $('btn-signup').addEventListener('click', doSignup);
+        $('btn-logout').addEventListener('click', doLogout);
+        $('btn-add-member').addEventListener('click', addMember);
+        $('login-pass').addEventListener('keydown', e => { if(e.key==='Enter') doLogin(); });
+
+        checkSession();
+    </script>
+</body>
+</html>

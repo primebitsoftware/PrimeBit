@@ -1,0 +1,19 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pbGrad" x1="20" y1="14" x2="100" y2="106" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#63B8FA"/>
+      <stop offset="0.55" stop-color="#3691EC"/>
+      <stop offset="1" stop-color="#1E6AD1"/>
+    </linearGradient>
+  </defs>
+  <rect x="14" y="14" width="92" height="92" rx="26" fill="url(#pbGrad)"/>
+  <!-- Pixel "P": left stem (3), top bar (3 across), right side (2) -->
+  <g fill="#0A1020">
+    <rect x="40" y="38" width="12" height="12" rx="3"/>
+    <rect x="57" y="38" width="12" height="12" rx="3"/>
+    <rect x="74" y="38" width="12" height="12" rx="3"/>
+    <rect x="40" y="55" width="12" height="12" rx="3"/>
+    <rect x="74" y="55" width="12" height="12" rx="3"/>
+    <rect x="40" y="72" width="12" height="12" rx="3"/>
+  </g>
+</svg>
