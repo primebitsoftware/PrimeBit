@@ -6,79 +6,62 @@
     <meta name="description" content="PRIMEBIT - Web Development & Design Studio | برايم بت لتطوير وتصميم المواقع والحلول الرقمية">
     <title>PRIMEBIT — Web Development & Design</title>
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="apple-touch-icon" href="assets/logo.png">
 
-    <!-- Social sharing (Open Graph) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="./">
     <meta property="og:title" content="PRIMEBIT — Web Development & Design">
-    <meta property="og:description" content="Web development & design studio crafting fast, modern websites and apps. نصمم ونطوّر مواقع وتطبيقات سريعة وعصرية.">
+    <meta property="og:description" content="Web development & design studio crafting fast, modern websites and apps.">
     <meta property="og:image" content="assets/banner.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="./">
-    
-    <!-- Google Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body data-lang="en">
 
-    <!-- Glow Orbs -->
-    <div class="bg-orbs" aria-hidden="true">
-        <div class="glow-orb orb-1"></div>
-        <div class="glow-orb orb-2"></div>
+    <!-- Background light beam + grid -->
+    <div class="bg-scene" aria-hidden="true">
+        <div class="beam"></div>
+        <div class="beam-core"></div>
+        <div class="grid-lines"></div>
     </div>
-
-
-
 
     <!-- ====== HEADER ====== -->
     <header class="main-header" id="header">
-        <div class="container navbar-container">
+        <div class="container header-inner">
             <a href="#hero" class="logo" id="nav-logo">
                 <img src="assets/logo.svg" alt="PRIMEBIT Logo" class="logo-img">
-                <div class="logo-text-wrap">
-                    <span class="logo-text">PRIME<span class="accent-text">BIT</span></span>
-                    <span class="logo-sub" data-en="Web Development & Design" data-ar="تطوير وتصميم المواقع">Web Development & Design</span>
-                </div>
+                <span class="logo-text">PRIME<span class="accent-text">BIT</span></span>
             </a>
-            
-            <nav class="nav-menu" id="nav-menu">
+
+            <nav class="nav-pill" id="nav-menu">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#hero" class="nav-link active" data-en="Home" data-ar="الرئيسية">Home</a></li>
-                    <li class="nav-item"><a href="#services" class="nav-link" data-en="Services" data-ar="خدماتنا">Services</a></li>
-                    <li class="nav-item"><a href="#portfolio" class="nav-link" data-en="Portfolio" data-ar="أعمالنا">Portfolio</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link" data-en="About Us" data-ar="من نحن">About Us</a></li>
-                    <li class="nav-item"><a href="#testimonials" class="nav-link" data-en="Testimonials" data-ar="آراء العملاء">Testimonials</a></li>
-                    <li class="nav-item"><a href="#calculator" class="nav-link" data-en="Cost Estimator" data-ar="حساب التكلفة">Cost Estimator</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+                    <li><a href="#hero" class="nav-link active" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-en="About" data-ar="من نحن">About</a></li>
+                    <li><a href="#services" class="nav-link" data-en="Services" data-ar="خدماتنا">Services</a></li>
+                    <li><a href="#calculator" class="nav-link" data-en="Pricing" data-ar="التسعير">Pricing</a></li>
+                    <li><a href="#portfolio" class="nav-link" data-en="Work" data-ar="أعمالنا">Work</a></li>
+                    <li><a href="#contact" class="nav-link" data-en="Contact" data-ar="تواصل">Contact</a></li>
                 </ul>
             </nav>
-            
+
             <div class="nav-actions">
-                <!-- Language Toggle -->
                 <button class="lang-toggle" id="lang-toggle" aria-label="Toggle Language">
+                    <i class="fa-solid fa-globe"></i>
                     <span class="lang-option" id="lang-en-label">EN</span>
-                    <span class="lang-divider">|</span>
+                    <span class="lang-divider">/</span>
                     <span class="lang-option" id="lang-ar-label">AR</span>
                 </button>
-                <a href="#calculator" class="btn btn-nav" data-en="Get Estimate" data-ar="احصل على تقدير">Get Estimate</a>
+                <a href="#contact" class="btn btn-ghost-pill" data-en="Let's Talk" data-ar="تواصل معنا">Let's Talk</a>
                 <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
                 </button>
             </div>
         </div>
@@ -86,117 +69,109 @@
 
     <main>
         <!-- ====== HERO ====== -->
-        <section class="hero-section" id="hero">
-            <canvas id="canvas-circuits" class="hero-canvas"></canvas>
-            
-            <div class="container hero-container">
-                <div class="hero-content">
+        <section class="hero" id="hero">
+            <div class="container hero-grid">
+                <div class="hero-left">
                     <div class="badge">
-                        <span class="badge-dot"></span>
-                        <span class="badge-text" data-en="Innovating Digital Excellence" data-ar="نبتكر التميز الرقمي">Innovating Digital Excellence</span>
+                        <span class="badge-icon"><i class="fa-solid fa-bolt"></i></span>
+                        <span data-en="Empowering Digital Growth" data-ar="نُمكّن نموّك الرقمي">Empowering Digital Growth</span>
                     </div>
                     <h1 class="hero-title" id="hero-main-title">
-                        <span data-en="Engineering Premium" data-ar="نبرمج ونبتكر">Engineering Premium</span><br>
-                        <span class="text-gradient" id="hero-gradient-text" data-en="Custom Software &" data-ar="الحلول البرمجية">Custom Software &</span>
-                        <span id="hero-realities" data-en=" Smart Apps" data-ar=" والأنظمة الذكية"> Smart Apps</span>
+                        <span class="l1">FUTURE-DRIVEN</span>
+                        <span class="l2">WEB DESIGN &amp;</span>
+                        <span class="l3"><span class="brace">{</span>DEVELOPMENT<span class="brace">}</span></span>
                     </h1>
-                    <p class="hero-description" id="hero-subtitle" data-en="We design, engineer, and deploy premium software solutions, high-performance web applications, and secure systems tailored for digital growth." data-ar="نهندس ونبرمج ونطلق حلولاً برمجية متكاملة، تطبيقات ويب عالية الأداء وأنظمة آمنة مصممة خصيصاً لنمو أعمالك الرقمية.">
-                        We design, engineer, and deploy premium software solutions, high-performance web applications, and secure systems tailored for digital growth.
+                    <p class="hero-sub" id="hero-subtitle" data-en="We craft high-quality websites and digital products that help businesses grow, scale, and stand out in a fast-changing world." data-ar="نصنع مواقع ومنتجات رقمية عالية الجودة تساعد الأعمال على النمو والتوسّع والتميّز في عالم سريع التغيّر.">
+                        We craft high-quality websites and digital products that help businesses grow, scale, and stand out in a fast-changing world.
                     </p>
                     <div class="hero-actions">
-                        <a href="#services" class="btn btn-primary">
-                            <span data-en="Explore Services" data-ar="استكشف خدماتنا">Explore Services</span>
+                        <a href="#contact" class="btn btn-primary">
+                            <span data-en="Get Started" data-ar="ابدأ الآن">Get Started</span>
                             <i class="fa-solid fa-arrow-right icon-btn"></i>
                         </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <span data-en="Let's Talk" data-ar="تحدث معنا">Let's Talk</span>
+                        <a href="#portfolio" class="btn btn-outline">
+                            <span data-en="See Our Work" data-ar="شاهد أعمالنا">See Our Work</span>
                         </a>
                     </div>
-                </div>
-                <div class="hero-graphic-wrapper">
-                    <div class="hero-card">
-                        <div class="card-glow"></div>
-                        <div class="hero-logo-display">
-                            <img src="assets/logo.svg" alt="PRIMEBIT Circuit Logo" class="hero-circuit-logo">
-                        </div>
-                        <div class="card-overlay-content">
-                            <div class="stat-badge">
-                                <div class="stat-icon"><i class="fa-solid fa-bolt"></i></div>
-                                <div class="stat-info">
-                                    <span class="stat-val">99.9%</span>
-                                    <span class="stat-lbl" data-en="Uptime & Performance" data-ar="الأداء والاستقرار">Uptime & Performance</span>
-                                </div>
-                            </div>
-                            <div class="tech-stack-icons">
-                                <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML5</span>
-                                <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
-                                <span class="tech-tag"><i class="fa-brands fa-js"></i> JS</span>
-                                <span class="tech-tag"><i class="fa-brands fa-node-js"></i> Node</span>
-                            </div>
+                    <div class="hero-follow">
+                        <span data-en="Follow Us" data-ar="تابعنا">Follow Us</span>
+                        <div class="hero-socials">
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
+
+                <div class="hero-right">
+                    <div class="code-window">
+                        <div class="code-bar">
+                            <span class="cdot red"></span><span class="cdot yellow"></span><span class="cdot green"></span>
+                            <span class="code-file">app.js</span>
+                            <span class="code-actions"><i class="fa-solid fa-rotate-right"></i><i class="fa-solid fa-play"></i></span>
+                        </div>
+                        <pre class="code-body"><code><span class="cl"><span class="c-kw">const</span> <span class="c-fn">build</span> = <span class="c-p">(</span>idea<span class="c-p">)</span> <span class="c-kw">=&gt;</span> <span class="c-p">{</span></span>
+<span class="cl">  <span class="c-kw">const</span> app = <span class="c-fn">createApp</span><span class="c-p">(</span><span class="c-str">'primebit'</span><span class="c-p">)</span>;</span>
+<span class="cl">  app.<span class="c-fn">design</span><span class="c-p">(</span><span class="c-p">{</span> clean: <span class="c-kw">true</span> <span class="c-p">}</span><span class="c-p">)</span>;</span>
+<span class="cl">  app.<span class="c-fn">develop</span><span class="c-p">(</span><span class="c-p">{</span> fast: <span class="c-kw">true</span> <span class="c-p">}</span><span class="c-p">)</span>;</span>
+<span class="cl">  <span class="c-kw">return</span> app.<span class="c-fn">launch</span><span class="c-p">(</span><span class="c-p">)</span>;</span>
+<span class="cl"><span class="c-p">}</span>;</span>
+<span class="cl"> </span>
+<span class="cl"><span class="c-cm">// ✔ Running flawlessly</span></span></code></pre>
+                        <div class="code-float">
+                            <span class="cf-title">performance</span>
+                            <span class="cf-val">99.9<span>%</span></span>
+                            <span class="cf-sub" data-en="Uptime &amp; Speed" data-ar="الأداء والسرعة">Uptime &amp; Speed</span>
+                        </div>
+                        <div class="code-lock"><i class="fa-solid fa-lock"></i></div>
+                    </div>
+                </div>
+            </div>
+            <a href="#stats" class="scroll-hint">
+                <span data-en="Scroll to explore" data-ar="مرّر للاستكشاف">Scroll to explore</span>
+                <i class="fa-solid fa-arrow-down"></i>
+            </a>
+        </section>
+
+        <!-- ====== STATS STRIP ====== -->
+        <section class="stats-strip" id="stats">
+            <div class="container stats-grid">
+                <div class="stat"><span class="stat-n">100%</span><span class="stat-l" data-en="Custom Code" data-ar="كود مخصص">Custom Code</span></div>
+                <div class="stat"><span class="stat-n">12h</span><span class="stat-l" data-en="Response Time" data-ar="سرعة الرد">Response Time</span></div>
+                <div class="stat"><span class="stat-n">24/7</span><span class="stat-l" data-en="Support" data-ar="دعم متواصل">Support</span></div>
+                <div class="stat"><span class="stat-n">A+</span><span class="stat-l" data-en="Secure &amp; Scalable" data-ar="آمن وقابل للتوسع">Secure &amp; Scalable</span></div>
             </div>
         </section>
 
         <!-- ====== ABOUT ====== -->
-        <section class="about-section section-padding" id="about">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">
-                        <span data-en="Who is " data-ar="من نحن ">Who is </span><span class="text-gradient">PRIMEBIT</span><span data-en="?" data-ar="؟">?</span>
-                    </h2>
-                    <p class="section-subtitle" data-en="We are a next-generation software development and digital strategy powerhouse." data-ar="نحن شركة رائدة في تطوير البرمجيات والاستراتيجيات الرقمية من الجيل الجديد.">We are a next-generation software development and digital strategy powerhouse.</p>
-                </div>
-                
-                <div class="about-grid">
-                    <div class="about-info">
-                        <h3 class="about-heading" data-en="Accelerating Business Growth through Intelligent Programming" data-ar="نسرّع نمو أعمالك من خلال البرمجة الذكية">Accelerating Business Growth through Intelligent Programming</h3>
-                        <p class="about-text" data-en="PRIMEBIT is a full-service software development agency founded with a single mission: to empower businesses globally by delivering custom-engineered digital systems. Driven by clean, pixel-perfect engineering and thoughtful design, we power digital transformation." data-ar="PRIMEBIT هي وكالة تطوير برمجيات متكاملة الخدمات، تأسست بمهمة واحدة: تمكين الأعمال التجارية على مستوى العالم من خلال تقديم أنظمة رقمية مصممة خصيصاً. مدفوعين بهندسة نظيفة ودقيقة وتصميم مدروس، نقود التحول الرقمي.">
-                            PRIMEBIT is a full-service software development agency founded with a single mission.
-                        </p>
-                        <p class="about-text" data-en="Whether you are a startup needing a stunning launchpad website, or an enterprise looking for sophisticated e-commerce, brokerage integrations, and customized API infrastructures, we bring top-tier craftsmanship to every single line of code." data-ar="سواء كنت شركة ناشئة تحتاج إلى موقع إطلاق مذهل، أو مؤسسة تبحث عن حلول تجارة إلكترونية متطورة وتكاملات وساطة وبنية تحتية مخصصة، نحن نقدم أعلى مستويات الجودة في كل سطر كود.">
-                            Whether you are a startup or an enterprise, we deliver excellence.
-                        </p>
-                        
-                        <div class="about-features">
-                            <div class="feature-item">
-                                <div class="feature-icon"><i class="fa-solid fa-code"></i></div>
-                                <div class="feature-desc">
-                                    <h4 data-en="Custom-Crafted Code" data-ar="كود مصمم خصيصاً">Custom-Crafted Code</h4>
-                                    <p data-en="No generic templates. Every platform is written from scratch for lightning-fast speeds." data-ar="لا قوالب جاهزة. كل منصة تُكتب من الصفر لسرعة فائقة وأداء عالٍ.">No generic templates. Every platform is written from scratch for lightning-fast speeds.</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
-                                <div class="feature-desc">
-                                    <h4 data-en="Growth & Marketing Integrated" data-ar="التسويق والنمو مدمجان">Growth & Marketing Integrated</h4>
-                                    <p data-en="We build with SEO, marketing automation, and conversion optimization baked in." data-ar="نبني مع تحسين محركات البحث وأتمتة التسويق وتحسين معدلات التحويل.">We build with SEO, marketing automation, and conversion optimization baked in.</p>
-                                </div>
-                            </div>
+        <section class="section about" id="about">
+            <div class="container about-grid">
+                <div class="about-copy">
+                    <span class="eyebrow" data-en="Who We Are" data-ar="من نحن">Who We Are</span>
+                    <h2 class="section-title"><span data-en="A studio built for" data-ar="استوديو مبني من أجل">A studio built for</span> <span class="grad">PRIMEBIT</span> <span data-en="performance" data-ar="الأداء">performance</span></h2>
+                    <p class="lead" data-en="PRIMEBIT is a web development & design studio. We turn ideas into fast, elegant, and reliable digital products — from marketing sites to full web apps." data-ar="PRIMEBIT استوديو لتطوير وتصميم المواقع. نحوّل الأفكار إلى منتجات رقمية سريعة وأنيقة وموثوقة — من المواقع التعريفية إلى تطبيقات الويب المتكاملة.">PRIMEBIT is a web development & design studio.</p>
+                    <div class="about-points">
+                        <div class="point feature-item">
+                            <div class="point-ic"><i class="fa-solid fa-code"></i></div>
+                            <div><h4 data-en="Clean, Custom Code" data-ar="كود نظيف ومخصص">Clean, Custom Code</h4><p data-en="Every project engineered from scratch for speed and scale." data-ar="كل مشروع يُبنى من الصفر للسرعة وقابلية التوسع.">Every project engineered from scratch for speed and scale.</p></div>
+                        </div>
+                        <div class="point feature-item">
+                            <div class="point-ic"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            <div><h4 data-en="Design That Converts" data-ar="تصميم يحقّق النتائج">Design That Converts</h4><p data-en="Modern interfaces focused on clarity and results." data-ar="واجهات عصرية تركّز على الوضوح وتحقيق النتائج.">Modern interfaces focused on clarity and results.</p></div>
                         </div>
                     </div>
-                    
-                    <div class="about-visual">
-                        <div class="visual-stack">
-                            <div class="visual-card main-visual">
-                                <img src="assets/logo.svg" alt="PRIMEBIT Identity" class="visual-img">
-                                <div class="visual-glow"></div>
-                            </div>
-                            <div class="visual-card overlay-visual">
-                                <div class="terminal-header">
-                                    <span class="terminal-dot red"></span>
-                                    <span class="terminal-dot yellow"></span>
-                                    <span class="terminal-dot green"></span>
-                                    <span class="terminal-title">primebit_engine.sh</span>
-                                </div>
-                                <div class="terminal-body">
-                                    <p class="t-line"><span class="t-comment"># PRIMEBIT Engine v2</span></p>
-                                    <p class="t-line"><span class="t-keyword">const</span> agency = <span class="t-string">"PRIMEBIT"</span>;</p>
-                                    <p class="t-line">agency.build({ web: <span class="t-keyword">true</span> });</p>
-                                    <p class="t-line success"><i class="fa-solid fa-check"></i> Running flawlessly!</p>
-                                </div>
-                            </div>
+                </div>
+                <div class="about-visual">
+                    <div class="glass-card">
+                        <div class="gc-row"><span class="gc-k" data-en="Projects Delivered" data-ar="مشاريع مُنجزة">Projects Delivered</span><span class="gc-v">On time</span></div>
+                        <div class="gc-bar"><span style="width:92%"></span></div>
+                        <div class="gc-row"><span class="gc-k" data-en="Client Satisfaction" data-ar="رضا العملاء">Client Satisfaction</span><span class="gc-v">Top tier</span></div>
+                        <div class="gc-bar"><span style="width:98%"></span></div>
+                        <div class="gc-tags">
+                            <span><i class="fa-brands fa-react"></i> React</span>
+                            <span><i class="fa-brands fa-node-js"></i> Node</span>
+                            <span><i class="fa-brands fa-js"></i> JS</span>
+                            <span><i class="fa-solid fa-database"></i> SQL</span>
                         </div>
                     </div>
                 </div>
@@ -204,588 +179,178 @@
         </section>
 
         <!-- ====== SERVICES ====== -->
-        <section class="services-section section-padding" id="services">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">
-                        <span data-en="Custom " data-ar="خدماتنا ">Custom </span><span class="text-gradient" data-en="Software Services" data-ar="البرمجية المتميزة">Software Services</span>
-                    </h2>
-                    <p class="section-subtitle" data-en="High-fidelity engineering tailored perfectly for your digital growth." data-ar="هندسة برمجية عالية الدقة مصممة خصيصاً لنمو أعمالك الرقمية.">High-fidelity engineering tailored perfectly for your digital growth.</p>
-                </div>
-                
-                <div class="services-grid">
-                    <!-- 1. E-Commerce Development -->
-                    <div class="service-card">
-                        <div class="service-glow"></div>
-                        <div class="service-header">
-                            <div class="service-icon-box"><i class="fa-solid fa-bag-shopping"></i></div>
-                            <h3 class="service-name" data-en="E-Commerce Development" data-ar="التجارة الإلكترونية وتطوير المتاجر">E-Commerce Development</h3>
-                        </div>
-                        <p class="service-description" data-en="Engineering highly scalable digital storefronts, checkout systems, and inventory sync databases." data-ar="برمجيات تجارة إلكترونية متكاملة وتطوير متاجر رقمية عالية الأداء مع ربط بوابات الدفع والمخازن.">Engineering highly scalable digital storefronts.</p>
-                        <ul class="service-bullets">
-                            <li><i class="fa-solid fa-circle-check"></i> <span data-en="Multi-gateway payment checkout" data-ar="دمج بوابات الدفع المتعددة">Multi-gateway payment checkout</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span data-en="Custom admin control panels" data-ar="لوحات تحكم برمجية خاصة">Custom admin control panels</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span data-en="Automated stock & order databases" data-ar="قواعد بيانات لإدارة المخزون والطلبات">Automated stock & order databases</span></li>
-                        </ul>
-                    </div>
-
-                    <!-- 2. Custom Web & Software -->
-                    <div class="service-card">
-                        <div class="service-glow"></div>
-                        <div class="service-header">
-                            <div class="service-icon-box"><i class="fa-solid fa-gears"></i></div>
-                            <h3 class="service-name" data-en="Custom Software & Web" data-ar="تطوير البرمجيات وتطبيقات الويب">Custom Software & Web</h3>
-                        </div>
-                        <p class="service-description" data-en="Coding custom web applications, automation engines, and cloud software platforms with optimized performance." data-ar="كتابة كود مخصص لتطبيقات الويب المبتكرة، محركات الأتمتة، والمنصات السحابية بأداء فائق.">Coding custom web applications and automation engines.</p>
-                        <ul class="service-bullets">
-                            <li><i class="fa-solid fa-circle-check"></i> <span data-en="Single Page Applications (SPA)" data-ar="تطبيقات الصفحة الواحدة (React/Vite)">Single Page Applications (SPA)</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span data-en="Custom API & backend connections" data-ar="برمجة واجهات API والأنظمة الخلفية">Custom API & backend connections</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span data-en="Clean, scalable code architecture" data-ar="كود برميجي نظيف وقابل للتوسع">Clean, scalable code architecture</span></li>
-                        </ul>
-                    </div>
-
-                    <!-- 3. E-Brokerage & FinTech Systems -->
-                    <div class="service-card">
-                        <div class="service-glow"></div>
-                        <div class="service-header">
-                            <div class="service-icon-box"><i class="fa-solid fa-wallet"></i></div>
-                            <h3 class="service-name" data-en="E-Brokerage & FinTech Systems" data-ar="الوساطة الإلكترونية والتكنولوجيا المالية">E-Brokerage & FinTech Systems</h3>
-                        </div>
-                        <p class="service-description" data-en="Custom development of secure transactional platforms, trading interfaces, and military-grade financial systems." data-ar="تطوير وبرمجة منصات المعاملات الآمنة، واجهات التداول، وأنظمة التكنولوجيا المالية والتكاملات المصرفية.">Custom development of secure transactional platforms.</p>
-                        <ul class="service-bullets">
-                            <li><i class="fa-solid fa-circle-check"></i> <span data-en="Real-time transaction & market APIs" data-ar="واجهات برمجة المعاملات والأسواق الفورية">Real-time transaction & market APIs</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span data-en="Military-grade security & encryption" data-ar="مستويات تشفير وحماية متقدمة">Military-grade security & encryption</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span data-en="Trading & analytical dashboards" data-ar="لوحات تحكم تداول وتحليل تفاعلية">Trading & analytical dashboards</span></li>
-                        </ul>
-                    </div>
-
-                    <!-- 4. IT Consulting & Analysis -->
-                    <div class="service-card">
-                        <div class="service-glow"></div>
-                        <div class="service-header">
-                            <div class="service-icon-box"><i class="fa-solid fa-chart-line"></i></div>
-                            <h3 class="service-name" data-en="IT Consulting & Analysis" data-ar="الاستشارات البرمجية وتحليل النظم">IT Consulting & Analysis</h3>
-                        </div>
-                        <p class="service-description" data-en="System architecture design, technology audits, database modeling, and optimization consulting." data-ar="تصميم هندسة البرمجيات، مراجعة وتدقيق الكود، نمذجة قواعد البيانات، وتقديم استشارات تحسين الأداء.">System architecture design and database modeling.</p>
-                        <ul class="service-bullets">
-                            <li><i class="fa-solid fa-circle-check"></i> <span data-en="System requirements engineering" data-ar="هندسة وتحليل متطلبات النظم">System requirements engineering</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span data-en="Code security & performance audits" data-ar="تدقيق أمان الكود وسرعة الأنظمة">Code security & performance audits</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i> <span data-en="Database structure optimization" data-ar="تحسين وهيكلة قواعد البيانات">Database structure optimization</span></li>
-                        </ul>
-                    </div>
-                </div>
+        <section class="section services" id="services">
+            <div class="section-head">
+                <span class="eyebrow" data-en="What We Do" data-ar="ماذا نقدّم">What We Do</span>
+                <h2 class="section-title"><span data-en="Our" data-ar="خدماتنا">Our</span> <span class="grad" data-en="Services" data-ar="المتميّزة">Services</span></h2>
             </div>
-        </section>
-
-        <!-- ====== WHY CHOOSE US ====== -->
-        <section class="whyus-section">
-            <div class="container">
-                <div class="whyus-grid">
-                    <div class="whyus-item">
-                        <div class="whyus-icon"><i class="fa-solid fa-code"></i></div>
-                        <div class="whyus-info">
-                            <span class="whyus-val" data-en="100%" data-ar="100%">100%</span>
-                            <span class="whyus-lbl" data-en="Custom Code" data-ar="كود مخصص بالكامل">Custom Code</span>
-                        </div>
-                    </div>
-                    <div class="whyus-item">
-                        <div class="whyus-icon"><i class="fa-solid fa-clock"></i></div>
-                        <div class="whyus-info">
-                            <span class="whyus-val" data-en="12h" data-ar="12 ساعة">12h</span>
-                            <span class="whyus-lbl" data-en="Response Time" data-ar="سرعة الرد">Response Time</span>
-                        </div>
-                    </div>
-                    <div class="whyus-item">
-                        <div class="whyus-icon"><i class="fa-solid fa-headset"></i></div>
-                        <div class="whyus-info">
-                            <span class="whyus-val" data-en="24/7" data-ar="24/7">24/7</span>
-                            <span class="whyus-lbl" data-en="Ongoing Support" data-ar="دعم مستمر">Ongoing Support</span>
-                        </div>
-                    </div>
-                    <div class="whyus-item">
-                        <div class="whyus-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                        <div class="whyus-info">
-                            <span class="whyus-val" data-en="Secure" data-ar="آمن">Secure</span>
-                            <span class="whyus-lbl" data-en="& Scalable" data-ar="وقابل للتوسع">& Scalable</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="container services-grid">
+                <article class="service-card">
+                    <div class="svc-ic"><i class="fa-solid fa-window-maximize"></i></div>
+                    <h3 data-en="Website Development" data-ar="تطوير المواقع">Website Development</h3>
+                    <p data-en="Blazing-fast, responsive websites and landing pages built to convert." data-ar="مواقع وصفحات هبوط سريعة ومتجاوبة مصمّمة لتحقيق التحويلات.">Blazing-fast, responsive websites and landing pages built to convert.</p>
+                    <ul><li data-en="Responsive on every device" data-ar="متجاوب على كل الأجهزة">Responsive on every device</li><li data-en="SEO-ready structure" data-ar="بنية جاهزة لمحركات البحث">SEO-ready structure</li></ul>
+                </article>
+                <article class="service-card">
+                    <div class="svc-ic"><i class="fa-solid fa-bag-shopping"></i></div>
+                    <h3 data-en="E-Commerce" data-ar="التجارة الإلكترونية">E-Commerce</h3>
+                    <p data-en="Complete online stores with secure checkout and inventory management." data-ar="متاجر إلكترونية متكاملة مع دفع آمن وإدارة مخزون.">Complete online stores with secure checkout and inventory management.</p>
+                    <ul><li data-en="Multi-gateway payments" data-ar="بوابات دفع متعددة">Multi-gateway payments</li><li data-en="Admin control panel" data-ar="لوحة تحكم للإدارة">Admin control panel</li></ul>
+                </article>
+                <article class="service-card">
+                    <div class="svc-ic"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h3 data-en="Web Apps &amp; SaaS" data-ar="تطبيقات الويب و SaaS">Web Apps &amp; SaaS</h3>
+                    <p data-en="Custom web applications, dashboards, and cloud platforms." data-ar="تطبيقات ويب مخصصة ولوحات تحكم ومنصات سحابية.">Custom web applications, dashboards, and cloud platforms.</p>
+                    <ul><li data-en="Custom APIs &amp; backends" data-ar="واجهات وأنظمة خلفية مخصصة">Custom APIs &amp; backends</li><li data-en="Scalable architecture" data-ar="بنية قابلة للتوسع">Scalable architecture</li></ul>
+                </article>
+                <article class="service-card">
+                    <div class="svc-ic"><i class="fa-solid fa-pen-ruler"></i></div>
+                    <h3 data-en="UI/UX Design" data-ar="تصميم واجهات المستخدم">UI/UX Design</h3>
+                    <p data-en="Beautiful, intuitive interfaces designed around your users." data-ar="واجهات جميلة وسهلة الاستخدام مصمّمة حول مستخدميك.">Beautiful, intuitive interfaces designed around your users.</p>
+                    <ul><li data-en="Modern design systems" data-ar="أنظمة تصميم عصرية">Modern design systems</li><li data-en="Prototyping &amp; branding" data-ar="النماذج والهوية البصرية">Prototyping &amp; branding</li></ul>
+                </article>
             </div>
         </section>
 
         <!-- ====== PROCESS ====== -->
-        <section class="process-section section-padding" id="process">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">
-                        <span data-en="How " data-ar="كيف ">How </span><span class="text-gradient" data-en="We Work" data-ar="نعمل؟">We Work</span>
-                    </h2>
-                    <p class="section-subtitle" data-en="A clear, transparent process from the first call to launch and beyond." data-ar="منهجية واضحة وشفافة من أول مكالمة حتى الإطلاق وما بعده.">A clear, transparent process from the first call to launch and beyond.</p>
-                </div>
-                <div class="process-grid">
-                    <div class="process-card">
-                        <span class="process-num">1</span>
-                        <div class="process-icon"><i class="fa-solid fa-comments"></i></div>
-                        <h4 data-en="Free Consultation" data-ar="استشارة مجانية">Free Consultation</h4>
-                        <p data-en="We listen to your idea, understand your goals, and define the project scope." data-ar="نستمع لفكرتك ونفهم أهدافك ونحدد نطاق المشروع.">We listen to your idea, understand your goals, and define the project scope.</p>
-                    </div>
-                    <div class="process-card">
-                        <span class="process-num">2</span>
-                        <div class="process-icon"><i class="fa-solid fa-clipboard-list"></i></div>
-                        <h4 data-en="Analysis & Planning" data-ar="التحليل والتخطيط">Analysis & Planning</h4>
-                        <p data-en="We analyze requirements and set a clear roadmap with a realistic timeline." data-ar="نحلل المتطلبات ونضع خطة عمل وجدولاً زمنياً واضحاً.">We analyze requirements and set a clear roadmap with a realistic timeline.</p>
-                    </div>
-                    <div class="process-card">
-                        <span class="process-num">3</span>
-                        <div class="process-icon"><i class="fa-solid fa-pen-ruler"></i></div>
-                        <h4 data-en="Design & Development" data-ar="التصميم والتطوير">Design & Development</h4>
-                        <p data-en="We craft the interfaces and write clean, scalable code with regular updates." data-ar="نصمم الواجهات ونكتب كوداً نظيفاً قابلاً للتوسع مع تحديثات مستمرة لك.">We craft the interfaces and write clean, scalable code with regular updates.</p>
-                    </div>
-                    <div class="process-card">
-                        <span class="process-num">4</span>
-                        <div class="process-icon"><i class="fa-solid fa-rocket"></i></div>
-                        <h4 data-en="Testing & Launch" data-ar="الاختبار والإطلاق">Testing & Launch</h4>
-                        <p data-en="We test every detail on all devices, then launch your project with confidence." data-ar="نختبر كل التفاصيل على جميع الأجهزة ثم نطلق مشروعك بثقة.">We test every detail on all devices, then launch your project with confidence.</p>
-                    </div>
-                    <div class="process-card">
-                        <span class="process-num">5</span>
-                        <div class="process-icon"><i class="fa-solid fa-headset"></i></div>
-                        <h4 data-en="Ongoing Support" data-ar="دعم مستمر">Ongoing Support</h4>
-                        <p data-en="We stay with you after launch for maintenance, updates, and growth." data-ar="نبقى معك بعد الإطلاق للصيانة والتحديثات وتطوير أعمالك.">We stay with you after launch for maintenance, updates, and growth.</p>
-                    </div>
-                </div>
+        <section class="section process" id="process">
+            <div class="section-head">
+                <span class="eyebrow" data-en="How We Work" data-ar="كيف نعمل">How We Work</span>
+                <h2 class="section-title"><span data-en="From idea to" data-ar="من الفكرة إلى">From idea to</span> <span class="grad" data-en="launch" data-ar="الإطلاق">launch</span></h2>
+            </div>
+            <div class="container process-track">
+                <div class="process-card"><span class="process-num">01</span><div class="process-ic"><i class="fa-solid fa-comments"></i></div><h4 data-en="Consultation" data-ar="استشارة">Consultation</h4><p data-en="We understand your goals and define the scope." data-ar="نفهم أهدافك ونحدّد نطاق العمل.">We understand your goals and define the scope.</p></div>
+                <div class="process-card"><span class="process-num">02</span><div class="process-ic"><i class="fa-solid fa-pen-ruler"></i></div><h4 data-en="Design" data-ar="التصميم">Design</h4><p data-en="We craft the interface and user experience." data-ar="نصمم الواجهة وتجربة المستخدم.">We craft the interface and user experience.</p></div>
+                <div class="process-card"><span class="process-num">03</span><div class="process-ic"><i class="fa-solid fa-code"></i></div><h4 data-en="Development" data-ar="التطوير">Development</h4><p data-en="We build with clean, scalable code." data-ar="نبني بكود نظيف قابل للتوسع.">We build with clean, scalable code.</p></div>
+                <div class="process-card"><span class="process-num">04</span><div class="process-ic"><i class="fa-solid fa-rocket"></i></div><h4 data-en="Launch &amp; Support" data-ar="الإطلاق والدعم">Launch &amp; Support</h4><p data-en="We test, launch, and keep supporting you." data-ar="نختبر، نطلق، ونستمر بدعمك.">We test, launch, and keep supporting you.</p></div>
             </div>
         </section>
 
         <!-- ====== CALCULATOR ====== -->
-        <section class="calculator-section section-padding" id="calculator">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">
-                        <span data-en="Project " data-ar="حاسبة ">Project </span><span class="text-gradient" data-en="Cost Estimator" data-ar="تكلفة المشروع">Cost Estimator</span>
-                    </h2>
-                    <p class="section-subtitle" data-en="Configure your project specs and get an instant price estimate." data-ar="حدد مواصفات مشروعك واحصل على تقدير فوري للسعر.">Configure your project specs and get an instant price estimate.</p>
-                </div>
-                
-                <div class="calculator-wrapper">
-                    <div class="calc-options">
-                        <!-- Project Type -->
-                        <div class="calc-group">
-                            <h4 class="calc-group-title" data-en="1. Select Project Type" data-ar="١. اختر نوع المشروع">1. Select Project Type</h4>
-                            <div class="calc-grid-selector">
-                                <label class="selector-card active" id="label-type-web">
-                                    <input type="radio" name="project-type" value="web" checked class="hidden-radio">
-                                    <div class="selector-icon"><i class="fa-solid fa-globe"></i></div>
-                                    <span data-en="Web App" data-ar="تطبيق ويب">Web App</span>
-                                </label>
-                                <label class="selector-card" id="label-type-ecommerce">
-                                    <input type="radio" name="project-type" value="ecommerce" class="hidden-radio">
-                                    <div class="selector-icon"><i class="fa-solid fa-cart-shopping"></i></div>
-                                    <span data-en="E-Commerce" data-ar="متجر إلكتروني">E-Commerce</span>
-                                </label>
-                                <label class="selector-card" id="label-type-mobile">
-                                    <input type="radio" name="project-type" value="mobile" class="hidden-radio">
-                                    <div class="selector-icon"><i class="fa-solid fa-mobile"></i></div>
-                                    <span data-en="Mobile App" data-ar="تطبيق جوال">Mobile App</span>
-                                </label>
-                                <label class="selector-card" id="label-type-brokerage">
-                                    <input type="radio" name="project-type" value="brokerage" class="hidden-radio">
-                                    <div class="selector-icon"><i class="fa-solid fa-chart-column"></i></div>
-                                    <span data-en="FinTech" data-ar="فينتك">FinTech</span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <!-- Pages Slider -->
-                        <div class="calc-group">
-                            <h4 class="calc-group-title">
-                                <span data-en="2. Project Scale: " data-ar="٢. حجم المشروع: ">2. Project Scale: </span>
-                                <span id="pages-count-display" class="accent-val">5 Screens / Pages</span>
-                            </h4>
-                            <input type="range" id="pages-slider" class="calc-range" min="1" max="30" value="5">
-                        </div>
-                        
-                        <!-- Features -->
-                        <div class="calc-group">
-                            <h4 class="calc-group-title" data-en="3. Add-On Features" data-ar="٣. المميزات الإضافية">3. Add-On Features</h4>
-                            <div class="calc-checkbox-grid">
-                                <label class="checkbox-card" id="label-feat-db">
-                                    <input type="checkbox" id="feat-db" class="hidden-checkbox">
-                                    <div class="check-box-indicator"><i class="fa-solid fa-check"></i></div>
-                                    <div class="check-label-info">
-                                        <span class="check-title" data-en="Database & CMS" data-ar="قاعدة البيانات">Database & CMS</span>
-                                        <span class="check-subtitle">+$350</span>
-                                    </div>
-                                </label>
-                                <label class="checkbox-card" id="label-feat-auth">
-                                    <input type="checkbox" id="feat-auth" class="hidden-checkbox">
-                                    <div class="check-box-indicator"><i class="fa-solid fa-check"></i></div>
-                                    <div class="check-label-info">
-                                        <span class="check-title" data-en="User Auth System" data-ar="نظام تسجيل الدخول">User Auth System</span>
-                                        <span class="check-subtitle">+$200</span>
-                                    </div>
-                                </label>
-                                <label class="checkbox-card" id="label-feat-seo">
-                                    <input type="checkbox" id="feat-seo" class="hidden-checkbox">
-                                    <div class="check-box-indicator"><i class="fa-solid fa-check"></i></div>
-                                    <div class="check-label-info">
-                                        <span class="check-title" data-en="SEO Optimization" data-ar="تحسين محركات البحث">SEO Optimization</span>
-                                        <span class="check-subtitle">+$300</span>
-                                    </div>
-                                </label>
-                                <label class="checkbox-card" id="label-feat-multilang">
-                                    <input type="checkbox" id="feat-multilang" class="hidden-checkbox">
-                                    <div class="check-box-indicator"><i class="fa-solid fa-check"></i></div>
-                                    <div class="check-label-info">
-                                        <span class="check-title" data-en="Multi-Language Support" data-ar="دعم متعدد اللغات">Multi-Language Support</span>
-                                        <span class="check-subtitle">+$250</span>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Summary Panel -->
-                    <div class="calc-summary-panel">
-                        <div class="summary-card">
-                            <h4 class="summary-title" data-en="Estimate Summary" data-ar="ملخص التقدير">Estimate Summary</h4>
-                            <div class="summary-details-list">
-                                <div class="summary-row">
-                                    <span class="sum-label" data-en="Core Architecture:" data-ar="نوع المشروع:">Core Architecture:</span>
-                                    <span class="sum-value" id="sum-type">Web Application</span>
-                                </div>
-                                <div class="summary-row">
-                                    <span class="sum-label" data-en="Project Scope:" data-ar="حجم المشروع:">Project Scope:</span>
-                                    <span class="sum-value" id="sum-scale">5 Screens</span>
-                                </div>
-                                <div class="summary-row">
-                                    <span class="sum-label" data-en="Features Enabled:" data-ar="المميزات المفعّلة:">Features Enabled:</span>
-                                    <span class="sum-value" id="sum-features">0 Selected</span>
-                                </div>
-                                <div class="summary-row border-top">
-                                    <span class="sum-label" data-en="Delivery Timeline:" data-ar="مدة التسليم:">Delivery Timeline:</span>
-                                    <span class="sum-value accent-green" id="sum-timeline">~ 2-3 Weeks</span>
-                                </div>
-                            </div>
-                            <div class="price-display-wrapper">
-                                <div class="price-lbl" data-en="ESTIMATED PRICE" data-ar="السعر التقديري">ESTIMATED PRICE</div>
-                                <div class="price-amount" id="total-price-display">$1,200</div>
-                                <div class="price-note" data-en="*Excluding monthly server hosting costs" data-ar="*لا يشمل تكاليف استضافة الخادم الشهرية">*Excluding monthly server hosting costs</div>
-                            </div>
-                            <button class="btn btn-primary btn-block" id="btn-order-from-calc">
-                                <span data-en="Lock In This Estimate" data-ar="تأكيد هذا التقدير">Lock In This Estimate</span>
-                                <i class="fa-solid fa-calendar-check icon-btn"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+        <section class="section calculator" id="calculator">
+            <div class="section-head">
+                <span class="eyebrow" data-en="Instant Estimate" data-ar="تقدير فوري">Instant Estimate</span>
+                <h2 class="section-title"><span data-en="Project" data-ar="حاسبة">Project</span> <span class="grad" data-en="Cost Estimator" data-ar="تكلفة المشروع">Cost Estimator</span></h2>
             </div>
-        </section>
-
-        <!-- ====== TESTIMONIALS ====== -->
-        <section class="testimonials-section section-padding" id="testimonials">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title" data-en="Our Clients' Trust, Our Success Story" data-ar="ثقة عملائنا، قصة نجاحنا">Our Clients' Trust, Our Success Story</h2>
-                    <p class="section-subtitle" data-en="We partner with industry leaders to engineer reliable software systems." data-ar="نشترك مع رواد الصناعة لهندسة أنظمة برمجية موثوقة وعالية الأداء.">We partner with industry leaders to engineer reliable software systems.</p>
+            <div class="container calc-wrap">
+                <div class="calc-options">
+                    <div class="calc-group">
+                        <h4 class="calc-group-title" data-en="1. Project Type" data-ar="١. نوع المشروع">1. Project Type</h4>
+                        <div class="calc-grid-selector">
+                            <label class="selector-card active" id="label-type-web"><input type="radio" name="project-type" value="web" checked class="hidden-radio"><div class="selector-icon"><i class="fa-solid fa-globe"></i></div><span data-en="Website" data-ar="موقع ويب">Website</span></label>
+                            <label class="selector-card" id="label-type-ecommerce"><input type="radio" name="project-type" value="ecommerce" class="hidden-radio"><div class="selector-icon"><i class="fa-solid fa-cart-shopping"></i></div><span data-en="E-Commerce" data-ar="متجر إلكتروني">E-Commerce</span></label>
+                            <label class="selector-card" id="label-type-mobile"><input type="radio" name="project-type" value="mobile" class="hidden-radio"><div class="selector-icon"><i class="fa-solid fa-mobile"></i></div><span data-en="Web App" data-ar="تطبيق ويب">Web App</span></label>
+                            <label class="selector-card" id="label-type-brokerage"><input type="radio" name="project-type" value="brokerage" class="hidden-radio"><div class="selector-icon"><i class="fa-solid fa-chart-column"></i></div><span data-en="Platform" data-ar="منصة">Platform</span></label>
+                        </div>
+                    </div>
+                    <div class="calc-group">
+                        <h4 class="calc-group-title"><span data-en="2. Project Scale: " data-ar="٢. حجم المشروع: ">2. Project Scale: </span><span id="pages-count-display" class="accent-val">5 Screens / Pages</span></h4>
+                        <input type="range" id="pages-slider" class="calc-range" min="1" max="30" value="5">
+                    </div>
+                    <div class="calc-group">
+                        <h4 class="calc-group-title" data-en="3. Add-On Features" data-ar="٣. مميزات إضافية">3. Add-On Features</h4>
+                        <div class="calc-checkbox-grid">
+                            <label class="checkbox-card" id="label-feat-db"><input type="checkbox" id="feat-db" class="hidden-checkbox"><div class="check-box-indicator"><i class="fa-solid fa-check"></i></div><div class="check-label-info"><span class="check-title" data-en="Database &amp; CMS" data-ar="قاعدة بيانات">Database &amp; CMS</span><span class="check-subtitle">+$350</span></div></label>
+                            <label class="checkbox-card" id="label-feat-auth"><input type="checkbox" id="feat-auth" class="hidden-checkbox"><div class="check-box-indicator"><i class="fa-solid fa-check"></i></div><div class="check-label-info"><span class="check-title" data-en="User Auth System" data-ar="نظام تسجيل دخول">User Auth System</span><span class="check-subtitle">+$200</span></div></label>
+                            <label class="checkbox-card" id="label-feat-seo"><input type="checkbox" id="feat-seo" class="hidden-checkbox"><div class="check-box-indicator"><i class="fa-solid fa-check"></i></div><div class="check-label-info"><span class="check-title" data-en="SEO Optimization" data-ar="تحسين محركات البحث">SEO Optimization</span><span class="check-subtitle">+$300</span></div></label>
+                            <label class="checkbox-card" id="label-feat-multilang"><input type="checkbox" id="feat-multilang" class="hidden-checkbox"><div class="check-box-indicator"><i class="fa-solid fa-check"></i></div><div class="check-label-info"><span class="check-title" data-en="Multi-Language" data-ar="دعم متعدد اللغات">Multi-Language</span><span class="check-subtitle">+$250</span></div></label>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonials-grid">
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar-wrapper">
-                            <div class="testimonial-avatar-initial" aria-hidden="true"></div>
-                        </div>
-                        <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="testimonial-quote" data-en="&ldquo;The custom software developed by PRIMEBIT has revolutionized our data operations. Their engineering team is exceptionally professional.&rdquo;" data-ar="«طوّرت لنا PRIMEBIT نظام تحليل بيانات مخصص غيّر طريقة عملنا بالكامل. فريق محترف بكل معنى الكلمة، والتسليم كان قبل الموعد.»">«طوّرت لنا PRIMEBIT نظام تحليل بيانات مخصص غيّر طريقة عملنا بالكامل. فريق محترف بكل معنى الكلمة، والتسليم كان قبل الموعد.»</p>
-                        <h4 class="testimonial-name" data-en="Khaled Al-Otaibi" data-ar="خالد العتيبي">Khaled Al-Otaibi</h4>
-                        <span class="testimonial-role" data-en="Tech Director, CloudMetrics" data-ar="مدير التقنية، CloudMetrics">Tech Director, CloudMetrics</span>
+                <div class="calc-summary">
+                    <h4 class="summary-title" data-en="Estimate Summary" data-ar="ملخص التقدير">Estimate Summary</h4>
+                    <div class="summary-row"><span class="sum-label" data-en="Type:" data-ar="النوع:">Type:</span><span class="sum-value" id="sum-type">Website</span></div>
+                    <div class="summary-row"><span class="sum-label" data-en="Scope:" data-ar="الحجم:">Scope:</span><span class="sum-value" id="sum-scale">5 Screens</span></div>
+                    <div class="summary-row"><span class="sum-label" data-en="Features:" data-ar="المميزات:">Features:</span><span class="sum-value" id="sum-features">0 Selected</span></div>
+                    <div class="summary-row"><span class="sum-label" data-en="Timeline:" data-ar="المدة:">Timeline:</span><span class="sum-value accent-green" id="sum-timeline">~ 2-3 Weeks</span></div>
+                    <div class="price-display">
+                        <div class="price-lbl" data-en="ESTIMATED PRICE" data-ar="السعر التقديري">ESTIMATED PRICE</div>
+                        <div class="price-amount" id="total-price-display">$1,200</div>
+                        <div class="price-note" data-en="*Excluding hosting costs" data-ar="*لا يشمل تكاليف الاستضافة">*Excluding hosting costs</div>
                     </div>
-
-                    <!-- Testimonial 2 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar-wrapper">
-                            <div class="testimonial-avatar-initial" aria-hidden="true"></div>
-                        </div>
-                        <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="testimonial-quote" data-en="&ldquo;Our e-commerce portal's sales surged by 150% after launching PRIMEBIT's custom-engineered solution. Speed and code quality are top-tier.&rdquo;" data-ar="«بعد إطلاق متجرنا الإلكتروني الجديد ارتفعت مبيعاتنا بنسبة 150%. سرعة المنصة وجودة الكود فاقت كل توقعاتنا.»">«بعد إطلاق متجرنا الإلكتروني الجديد ارتفعت مبيعاتنا بنسبة 150%. سرعة المنصة وجودة الكود فاقت كل توقعاتنا.»</p>
-                        <h4 class="testimonial-name" data-en="Hamed Al-Fawwaz" data-ar="حامد الفواز">Hamed Al-Fawwaz</h4>
-                        <span class="testimonial-role" data-en="Founder, AeroMarket" data-ar="مؤسس، AeroMarket">Founder, AeroMarket</span>
-                    </div>
-
-                    <!-- Testimonial 3 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar-wrapper">
-                            <div class="testimonial-avatar-initial" aria-hidden="true"></div>
-                        </div>
-                        <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="testimonial-quote" data-en="&ldquo;The security and processing speed of our new FinTech system are incredible. A major milestone for our brokerage operations.&rdquo;" data-ar="«أنظمة التكنولوجيا المالية التي طورتها لنا PRIMEBIT تميزت بأمان وسرعة استثنائيين. نقلة نوعية حقيقية لعمليات الوساطة لدينا.»">«أنظمة التكنولوجيا المالية التي طورتها لنا PRIMEBIT تميزت بأمان وسرعة استثنائيين. نقلة نوعية حقيقية لعمليات الوساطة لدينا.»</p>
-                        <h4 class="testimonial-name" data-en="Ahmed Al-Fawzan" data-ar="أحمد الفوزان">Ahmed Al-Fawzan</h4>
-                        <span class="testimonial-role" data-en="CEO, NexGen Solutions" data-ar="المدير التنفيذي، NexGen Solutions">CEO, NexGen Solutions</span>
-                    </div>
+                    <button class="btn btn-primary btn-block" id="btn-order-from-calc"><span data-en="Lock In This Estimate" data-ar="تأكيد هذا التقدير">Lock In This Estimate</span><i class="fa-solid fa-arrow-right icon-btn"></i></button>
                 </div>
             </div>
         </section>
 
         <!-- ====== PORTFOLIO ====== -->
-        <section class="portfolio-section section-padding" id="portfolio">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">
-                        <span data-en="Featured " data-ar="أبرز ">Featured </span><span class="text-gradient" data-en="Project Concepts" data-ar="مفاهيم المشاريع">Project Concepts</span>
-                    </h2>
-                    <p class="section-subtitle" data-en="Discover how we shape tech solutions into high-fidelity experiences." data-ar="اكتشف كيف نحوّل الحلول التقنية إلى تجارب عالية الجودة.">Discover how we shape tech solutions into high-fidelity experiences.</p>
-                </div>
-                
-                <div class="portfolio-filters">
-                    <button class="filter-btn active" data-filter="all" data-en="All Projects" data-ar="جميع الأعمال">All Projects</button>
-                    <button class="filter-btn" data-filter="web" data-en="Custom Web" data-ar="مواقع مخصصة">Custom Web</button>
-                    <button class="filter-btn" data-filter="ecommerce" data-en="E-Commerce" data-ar="تجارة إلكترونية">E-Commerce</button>
-                    <button class="filter-btn" data-filter="brokerage" data-en="FinTech" data-ar="فينتك">FinTech</button>
-                </div>
-                
-                <div class="portfolio-grid">
-                    <!-- 1. FinTech Trading Dashboard -->
-                    <div class="portfolio-item" data-category="brokerage">
-                        <div class="portfolio-img-box">
-                            <img src="imeg/portfolio_fintech.png" alt="FinTech Trading Dashboard" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <div class="overlay-details">
-                                    <span class="proj-category" data-en="FinTech System" data-ar="نظام فينتك">FinTech System</span>
-                                    <h3 class="proj-title" data-en="PRIMEBIT Trading Engine" data-ar="محرك التداول PRIMEBIT">PRIMEBIT Trading Engine</h3>
-                                    <p class="proj-snippet" data-en="Real-time trading dashboard with candlestick charts, portfolio analytics, and multi-asset management." data-ar="لوحة تداول في الوقت الفعلي مع مخططات الشموع وتحليلات المحفظة وإدارة الأصول المتعددة.">Real-time trading dashboard with candlestick charts and portfolio analytics.</p>
-                                    <a href="#contact" class="proj-link" data-en="Discuss a Similar Project" data-ar="اطلب مشروعاً مشابهاً"><span>Discuss a Similar Project</span> <i class="fa-solid fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <section class="section portfolio" id="portfolio">
+            <div class="section-head">
+                <span class="eyebrow" data-en="Selected Work" data-ar="مختارات من أعمالنا">Selected Work</span>
+                <h2 class="section-title"><span data-en="Featured" data-ar="أبرز">Featured</span> <span class="grad" data-en="Projects" data-ar="المشاريع">Projects</span></h2>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all" data-en="All" data-ar="الكل">All</button>
+                <button class="filter-btn" data-filter="web" data-en="Websites" data-ar="مواقع">Websites</button>
+                <button class="filter-btn" data-filter="ecommerce" data-en="E-Commerce" data-ar="تجارة إلكترونية">E-Commerce</button>
+                <button class="filter-btn" data-filter="brokerage" data-en="Platforms" data-ar="منصات">Platforms</button>
+            </div>
+            <div class="container portfolio-grid">
+                <div class="portfolio-item" data-category="brokerage"><div class="pf-img"><img src="imeg/portfolio_fintech.png" alt="Analytics Platform"></div><div class="pf-body"><span class="pf-cat" data-en="Platform" data-ar="منصة">Platform</span><h3 data-en="Analytics Dashboard" data-ar="لوحة تحليلات">Analytics Dashboard</h3><a href="#contact" class="pf-link" data-en="Discuss a similar project" data-ar="اطلب مشروعاً مشابهاً">Discuss a similar project <i class="fa-solid fa-arrow-right"></i></a></div></div>
+                <div class="portfolio-item" data-category="ecommerce"><div class="pf-img"><img src="imeg/portfolio_ecommerce.png" alt="E-Commerce"></div><div class="pf-body"><span class="pf-cat" data-en="E-Commerce" data-ar="تجارة إلكترونية">E-Commerce</span><h3 data-en="Online Store" data-ar="متجر إلكتروني">Online Store</h3><a href="#contact" class="pf-link" data-en="Discuss a similar project" data-ar="اطلب مشروعاً مشابهاً">Discuss a similar project <i class="fa-solid fa-arrow-right"></i></a></div></div>
+                <div class="portfolio-item" data-category="web"><div class="pf-img"><img src="imeg/portfolio_saas.png" alt="SaaS"></div><div class="pf-body"><span class="pf-cat" data-en="Web App" data-ar="تطبيق ويب">Web App</span><h3 data-en="SaaS Platform" data-ar="منصة SaaS">SaaS Platform</h3><a href="#contact" class="pf-link" data-en="Discuss a similar project" data-ar="اطلب مشروعاً مشابهاً">Discuss a similar project <i class="fa-solid fa-arrow-right"></i></a></div></div>
+                <div class="portfolio-item" data-category="web"><div class="pf-img"><img src="imeg/portfolio_corporate.png" alt="Corporate"></div><div class="pf-body"><span class="pf-cat" data-en="Website" data-ar="موقع">Website</span><h3 data-en="Corporate Site" data-ar="موقع شركة">Corporate Site</h3><a href="#contact" class="pf-link" data-en="Discuss a similar project" data-ar="اطلب مشروعاً مشابهاً">Discuss a similar project <i class="fa-solid fa-arrow-right"></i></a></div></div>
+                <div class="portfolio-item" data-category="web"><div class="pf-img"><img src="imeg/portfolio_mobile.png" alt="Mobile"></div><div class="pf-body"><span class="pf-cat" data-en="Web App" data-ar="تطبيق ويب">Web App</span><h3 data-en="Mobile-First App" data-ar="تطبيق للجوال">Mobile-First App</h3><a href="#contact" class="pf-link" data-en="Discuss a similar project" data-ar="اطلب مشروعاً مشابهاً">Discuss a similar project <i class="fa-solid fa-arrow-right"></i></a></div></div>
+                <div class="portfolio-item" data-category="ecommerce"><div class="pf-img"><img src="imeg/portfolio_restaurant.png" alt="Restaurant"></div><div class="pf-body"><span class="pf-cat" data-en="E-Commerce" data-ar="تجارة إلكترونية">E-Commerce</span><h3 data-en="Ordering Platform" data-ar="منصة طلبات">Ordering Platform</h3><a href="#contact" class="pf-link" data-en="Discuss a similar project" data-ar="اطلب مشروعاً مشابهاً">Discuss a similar project <i class="fa-solid fa-arrow-right"></i></a></div></div>
+            </div>
+        </section>
 
-                    <!-- 2. E-Commerce Platform -->
-                    <div class="portfolio-item" data-category="ecommerce">
-                        <div class="portfolio-img-box">
-                            <img src="imeg/portfolio_ecommerce.png" alt="E-Commerce Platform" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <div class="overlay-details">
-                                    <span class="proj-category" data-en="E-Commerce" data-ar="تجارة إلكترونية">E-Commerce</span>
-                                    <h3 class="proj-title" data-en="AeroMarket Hub" data-ar="منصة AeroMarket">AeroMarket Hub</h3>
-                                    <p class="proj-snippet" data-en="Ultra-fast e-commerce platform with smart product catalog, multi-gateway payments, and real-time inventory." data-ar="منصة تجارة إلكترونية فائقة السرعة مع كتالوج منتجات ذكي وبوابات دفع متعددة ومخزون فوري.">Ultra-fast e-commerce platform with smart product catalog.</p>
-                                    <a href="#contact" class="proj-link" data-en="Discuss a Similar Project" data-ar="اطلب مشروعاً مشابهاً"><span>Discuss a Similar Project</span> <i class="fa-solid fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 3. SaaS Analytics Dashboard -->
-                    <div class="portfolio-item" data-category="web">
-                        <div class="portfolio-img-box">
-                            <img src="imeg/portfolio_saas.png" alt="SaaS Analytics Dashboard" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <div class="overlay-details">
-                                    <span class="proj-category" data-en="Web Application" data-ar="تطبيق ويب">Web Application</span>
-                                    <h3 class="proj-title" data-en="CloudMetrics Pro" data-ar="CloudMetrics Pro">CloudMetrics Pro</h3>
-                                    <p class="proj-snippet" data-en="Enterprise-grade SaaS analytics dashboard with real-time data visualization and user metrics." data-ar="لوحة تحليلات SaaS للمؤسسات مع تصور بيانات في الوقت الفعلي ومقاييس المستخدمين.">Enterprise SaaS analytics dashboard with real-time data visualization.</p>
-                                    <a href="#contact" class="proj-link" data-en="Discuss a Similar Project" data-ar="اطلب مشروعاً مشابهاً"><span>Discuss a Similar Project</span> <i class="fa-solid fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 4. Corporate Website -->
-                    <div class="portfolio-item" data-category="web">
-                        <div class="portfolio-img-box">
-                            <img src="imeg/portfolio_corporate.png" alt="Corporate Website" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <div class="overlay-details">
-                                    <span class="proj-category" data-en="Corporate Web" data-ar="موقع شركة">Corporate Web</span>
-                                    <h3 class="proj-title" data-en="NexGen Solutions" data-ar="NexGen Solutions">NexGen Solutions</h3>
-                                    <p class="proj-snippet" data-en="Premium corporate landing page with modern design, smooth animations, and full responsiveness." data-ar="صفحة هبوط شركة متميزة بتصميم حديث وحركات سلسة واستجابة كاملة.">Premium corporate landing page with modern design.</p>
-                                    <a href="#contact" class="proj-link" data-en="Discuss a Similar Project" data-ar="اطلب مشروعاً مشابهاً"><span>Discuss a Similar Project</span> <i class="fa-solid fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 5. Mobile App -->
-                    <div class="portfolio-item" data-category="web">
-                        <div class="portfolio-img-box">
-                            <img src="imeg/portfolio_mobile.png" alt="Mobile App Design" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <div class="overlay-details">
-                                    <span class="proj-category" data-en="Mobile App" data-ar="تطبيق جوال">Mobile App</span>
-                                    <h3 class="proj-title" data-en="SwiftDeliver App" data-ar="تطبيق SwiftDeliver">SwiftDeliver App</h3>
-                                    <p class="proj-snippet" data-en="Cross-platform mobile application with native-quality UI, push notifications, and offline sync." data-ar="تطبيق جوال متعدد المنصات بواجهة مستخدم بجودة أصلية وإشعارات فورية ومزامنة بدون اتصال.">Cross-platform mobile app with native-quality UI.</p>
-                                    <a href="#contact" class="proj-link" data-en="Discuss a Similar Project" data-ar="اطلب مشروعاً مشابهاً"><span>Discuss a Similar Project</span> <i class="fa-solid fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 6. Restaurant E-Commerce -->
-                    <div class="portfolio-item" data-category="ecommerce">
-                        <div class="portfolio-img-box">
-                            <img src="imeg/portfolio_restaurant.png" alt="Restaurant Platform" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <div class="overlay-details">
-                                    <span class="proj-category" data-en="E-Commerce" data-ar="تجارة إلكترونية">E-Commerce</span>
-                                    <h3 class="proj-title" data-en="GourmetOrder Platform" data-ar="منصة GourmetOrder">GourmetOrder Platform</h3>
-                                    <p class="proj-snippet" data-en="Smart restaurant ordering system with menu management, delivery tracking, and online payments." data-ar="نظام طلبات مطاعم ذكي مع إدارة القائمة وتتبع التوصيل والدفع الإلكتروني.">Smart restaurant ordering system with delivery tracking.</p>
-                                    <a href="#contact" class="proj-link" data-en="Discuss a Similar Project" data-ar="اطلب مشروعاً مشابهاً"><span>Discuss a Similar Project</span> <i class="fa-solid fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- ====== TESTIMONIALS ====== -->
+        <section class="section testimonials" id="testimonials">
+            <div class="section-head">
+                <span class="eyebrow" data-en="Testimonials" data-ar="آراء العملاء">Testimonials</span>
+                <h2 class="section-title"><span data-en="Trusted by" data-ar="موثوق من">Trusted by</span> <span class="grad" data-en="clients" data-ar="عملائنا">clients</span></h2>
+            </div>
+            <div class="container testimonials-grid">
+                <div class="testimonial-card"><div class="testimonial-avatar-initial" aria-hidden="true"></div><div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="testimonial-quote" data-en="&ldquo;PRIMEBIT delivered a stunning, fast website ahead of schedule. Truly professional team.&rdquo;" data-ar="«سلّمتنا PRIMEBIT موقعاً سريعاً ومذهلاً قبل الموعد. فريق محترف فعلاً.»">«سلّمتنا PRIMEBIT موقعاً سريعاً ومذهلاً قبل الموعد. فريق محترف فعلاً.»</p><h4 class="testimonial-name" data-en="Khaled Al-Otaibi" data-ar="خالد العتيبي">Khaled Al-Otaibi</h4><span class="testimonial-role" data-en="Founder, CloudMetrics" data-ar="مؤسس، CloudMetrics">Founder, CloudMetrics</span></div>
+                <div class="testimonial-card"><div class="testimonial-avatar-initial" aria-hidden="true"></div><div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="testimonial-quote" data-en="&ldquo;Our online store sales jumped 150% after the new build. Speed and quality are top-tier.&rdquo;" data-ar="«قفزت مبيعات متجرنا 150% بعد الموقع الجديد. السرعة والجودة من الطراز الأول.»">«قفزت مبيعات متجرنا 150% بعد الموقع الجديد. السرعة والجودة من الطراز الأول.»</p><h4 class="testimonial-name" data-en="Hamed Al-Fawwaz" data-ar="حامد الفواز">Hamed Al-Fawwaz</h4><span class="testimonial-role" data-en="Owner, AeroMarket" data-ar="صاحب، AeroMarket">Owner, AeroMarket</span></div>
+                <div class="testimonial-card"><div class="testimonial-avatar-initial" aria-hidden="true"></div><div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="testimonial-quote" data-en="&ldquo;The platform they built is secure, fast, and easy to manage. A real game-changer.&rdquo;" data-ar="«المنصة التي بنوها آمنة وسريعة وسهلة الإدارة. نقلة نوعية حقيقية.»">«المنصة التي بنوها آمنة وسريعة وسهلة الإدارة. نقلة نوعية حقيقية.»</p><h4 class="testimonial-name" data-en="Ahmed Al-Fawzan" data-ar="أحمد الفوزان">Ahmed Al-Fawzan</h4><span class="testimonial-role" data-en="CEO, NexGen" data-ar="المدير التنفيذي، NexGen">CEO, NexGen</span></div>
             </div>
         </section>
 
         <!-- ====== FAQ ====== -->
-        <section class="faq-section section-padding" id="faq">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">
-                        <span data-en="Frequently Asked " data-ar="الأسئلة ">Frequently Asked </span><span class="text-gradient" data-en="Questions" data-ar="الشائعة">Questions</span>
-                    </h2>
-                    <p class="section-subtitle" data-en="Everything you need to know before starting your project with us." data-ar="كل ما تحتاج معرفته قبل البدء بمشروعك معنا.">Everything you need to know before starting your project with us.</p>
-                </div>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span data-en="How long does a project take?" data-ar="كم يستغرق تنفيذ المشروع؟">How long does a project take?</span>
-                            <i class="fa-solid fa-chevron-down faq-chevron"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p data-en="It depends on the project scope. A standard website takes 2–3 weeks, while larger e-commerce or FinTech systems take 5–10 weeks. You get an instant estimate from our Cost Estimator above." data-ar="يعتمد ذلك على حجم المشروع. الموقع القياسي يستغرق 2–3 أسابيع، بينما أنظمة التجارة الإلكترونية أو الفينتك الأكبر تستغرق 5–10 أسابيع. تحصل على تقدير فوري من حاسبة التكلفة بالأعلى.">It depends on the project scope. A standard website takes 2–3 weeks, while larger e-commerce or FinTech systems take 5–10 weeks.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span data-en="How does payment work?" data-ar="كيف تتم عملية الدفع؟">How does payment work?</span>
-                            <i class="fa-solid fa-chevron-down faq-chevron"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p data-en="We typically split payment into milestones: a deposit to start, a payment at the design stage, and the balance on delivery. We agree on the exact terms before any work begins." data-ar="عادةً نقسّم الدفع على مراحل: دفعة مقدمة للبدء، دفعة عند مرحلة التصميم، والباقي عند التسليم. نتفق على التفاصيل الكاملة قبل بدء أي عمل.">We split payment into milestones: a deposit to start, a payment at the design stage, and the balance on delivery.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span data-en="Do you provide support after delivery?" data-ar="هل تقدمون دعماً بعد التسليم؟">Do you provide support after delivery?</span>
-                            <i class="fa-solid fa-chevron-down faq-chevron"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p data-en="Yes. Every project includes a free support period after launch, plus optional maintenance plans for updates, fixes, and new features as your business grows." data-ar="نعم. كل مشروع يشمل فترة دعم مجانية بعد الإطلاق، بالإضافة إلى خطط صيانة اختيارية للتحديثات والإصلاحات والمميزات الجديدة مع نمو أعمالك.">Yes. Every project includes a free support period after launch, plus optional maintenance plans.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span data-en="Do I own the code and the website?" data-ar="هل أملك الكود والموقع؟">Do I own the code and the website?</span>
-                            <i class="fa-solid fa-chevron-down faq-chevron"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p data-en="Absolutely. Once the project is fully paid, you own 100% of the source code, design, and all assets — with no lock-in or hidden dependencies." data-ar="بالتأكيد. بمجرد سداد المشروع بالكامل، تملك 100% من الكود المصدري والتصميم وكل الملفات — بدون أي قيود أو ارتباطات خفية.">Absolutely. Once fully paid, you own 100% of the source code, design, and all assets.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span data-en="Can you work with clients remotely?" data-ar="هل تعملون مع العملاء عن بُعد؟">Can you work with clients remotely?</span>
-                            <i class="fa-solid fa-chevron-down faq-chevron"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p data-en="Yes. We're based in Irbid, Jordan, and work with clients both locally and remotely across the region and worldwide." data-ar="نعم. مقرنا في إربد، الأردن، ونعمل مع العملاء محلياً وعن بُعد في المنطقة وحول العالم.">Yes. We're based in Irbid, Jordan, and work with clients both locally and remotely.</p>
-                        </div>
-                    </div>
-                </div>
+        <section class="section faq" id="faq">
+            <div class="section-head">
+                <span class="eyebrow" data-en="FAQ" data-ar="الأسئلة الشائعة">FAQ</span>
+                <h2 class="section-title"><span data-en="Frequently asked" data-ar="أسئلة">Frequently asked</span> <span class="grad" data-en="questions" data-ar="شائعة">questions</span></h2>
+            </div>
+            <div class="container faq-list">
+                <div class="faq-item"><button class="faq-question"><span data-en="How long does a project take?" data-ar="كم يستغرق المشروع؟">How long does a project take?</span><i class="fa-solid fa-chevron-down faq-chevron"></i></button><div class="faq-answer"><p data-en="A standard website takes 2–3 weeks; larger apps take 5–10 weeks. Use the estimator above for an instant timeline." data-ar="الموقع القياسي 2–3 أسابيع، والتطبيقات الأكبر 5–10 أسابيع. استخدم الحاسبة بالأعلى لتقدير فوري.">A standard website takes 2–3 weeks; larger apps take 5–10 weeks.</p></div></div>
+                <div class="faq-item"><button class="faq-question"><span data-en="How does payment work?" data-ar="كيف تتم عملية الدفع؟">How does payment work?</span><i class="fa-solid fa-chevron-down faq-chevron"></i></button><div class="faq-answer"><p data-en="We split payment into milestones: a deposit to start, a payment at design stage, and the balance on delivery." data-ar="نقسّم الدفع على مراحل: دفعة للبدء، دفعة عند التصميم، والباقي عند التسليم.">We split payment into milestones.</p></div></div>
+                <div class="faq-item"><button class="faq-question"><span data-en="Do I own the code?" data-ar="هل أملك الكود؟">Do I own the code?</span><i class="fa-solid fa-chevron-down faq-chevron"></i></button><div class="faq-answer"><p data-en="Yes — once fully paid, you own 100% of the source code, design, and assets." data-ar="نعم — بمجرد السداد الكامل، تملك 100% من الكود والتصميم والملفات.">Yes — you own 100% of the source code.</p></div></div>
+                <div class="faq-item"><button class="faq-question"><span data-en="Do you provide support after launch?" data-ar="هل تقدمون دعماً بعد الإطلاق؟">Do you provide support after launch?</span><i class="fa-solid fa-chevron-down faq-chevron"></i></button><div class="faq-answer"><p data-en="Absolutely. Every project includes a free support period plus optional maintenance plans." data-ar="بالتأكيد. كل مشروع يشمل فترة دعم مجانية بالإضافة إلى خطط صيانة اختيارية.">Every project includes a free support period.</p></div></div>
             </div>
         </section>
 
         <!-- ====== CONTACT ====== -->
-        <section class="contact-section section-padding" id="contact">
-            <div class="container">
-                <div class="section-header text-center">
-<h2 class="section-title">
-                        <span data-en="Contact" data-ar="تواصل">Contact</span>
-                        <span class="text-gradient" data-en="Us" data-ar="معنا">Us</span>
-                    </h2>
-<p class="section-subtitle" data-en="Tell us about your project — we’ll respond within 12 hours." data-ar="شاركنا تفاصيل مشروعك — سنرد خلال 12 ساعة.">Tell us about your project — we’ll respond within 12 hours.</p>
+        <section class="section contact" id="contact">
+            <div class="section-head">
+                <span class="eyebrow" data-en="Get In Touch" data-ar="تواصل معنا">Get In Touch</span>
+                <h2 class="section-title"><span data-en="Let's build" data-ar="لنبنِ">Let's build</span> <span class="grad" data-en="something great" data-ar="شيئاً رائعاً">something great</span></h2>
+                <p class="section-sub" data-en="Tell us about your project — we'll respond within 12 hours." data-ar="شاركنا تفاصيل مشروعك — سنرد خلال 12 ساعة.">Tell us about your project — we'll respond within 12 hours.</p>
+            </div>
+            <div class="container contact-grid">
+                <div class="contact-info">
+                    <div class="channel-card"><div class="channel-icon"><i class="fa-solid fa-envelope"></i></div><div class="channel-info"><span class="chan-title" data-en="Email Us" data-ar="راسلنا">Email Us</span><a href="mailto:info@primebit.com" class="chan-link" id="display-email">info@primebit.com</a></div></div>
+                    <div class="channel-card" id="whatsapp-channel" style="display:none"><div class="channel-icon"><i class="fa-brands fa-whatsapp"></i></div><div class="channel-info"><span class="chan-title" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span><a href="#" class="chan-link" id="display-whatsapp"></a></div></div>
+                    <div class="channel-card"><div class="channel-icon"><i class="fa-solid fa-location-dot"></i></div><div class="channel-info"><span class="chan-title" data-en="Location" data-ar="الموقع">Location</span><span class="chan-link" data-en="Irbid, Jordan" data-ar="إربد، الأردن">Irbid, Jordan</span></div></div>
+                    <div class="contact-brand"><img src="assets/logo.svg" alt="PRIMEBIT" class="cb-logo"><div><strong>PRIMEBIT</strong><span data-en="Web Development &amp; Design" data-ar="تطوير وتصميم المواقع">Web Development &amp; Design</span></div></div>
                 </div>
-                
-                <div class="contact-grid">
-                    <div class="contact-info-panel">
-                        <div class="contact-card-bg"></div>
-<h3 class="info-title" data-en="Contact & Services" data-ar="التواصل والخدمات">Contact & Services</h3>
-<p class="info-text" data-en="We provide premium software solutions: web apps, e-commerce, fintech systems, and secure integrations." data-ar="نقدم حلول برمجية متميزة: تطبيقات الويب، التجارة الإلكترونية، أنظمة الفينتك، وتكاملات آمنة.">We provide premium software solutions: web apps, e-commerce, fintech systems, and secure integrations.</p>
-                        
-                        <div class="contact-channels">
-                            <div class="channel-card">
-                                <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
-                                <div class="channel-info">
-                                    <span class="chan-title" data-en="Email Us Directly" data-ar="راسلنا مباشرة">Email Us Directly</span>
-                                    <a href="mailto:info@primebit.com" class="chan-link" id="display-email">info@primebit.com</a>
-                                </div>
-                            </div>
-                            <div class="channel-card" id="whatsapp-channel" style="display:none">
-                                <div class="channel-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                                <div class="channel-info">
-                                    <span class="chan-title" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
-                                    <a href="#" class="chan-link" id="display-whatsapp"></a>
-                                </div>
-                            </div>
-                            <div class="channel-card">
-                                <div class="channel-icon"><i class="fa-solid fa-location-dot"></i></div>
-                                <div class="channel-info">
-                                    <span class="chan-title" data-en="Our Location" data-ar="موقعنا">Our Location</span>
-                                    <a href="https://maps.google.com/?q=Al+Hosn+Street+Irbid+Jordan" class="chan-link" target="_blank" rel="noopener" data-en="Irbid – Al-Hosn St. – Al-Sharaa & Al-Rimahi Complex" data-ar="إربد – شارع الحصن – مجمع الشرعة والرمحي">Irbid – Al-Hosn St. – Al-Sharaa & Al-Rimahi Complex</a>
-                                </div>
-                            </div>
+                <div class="contact-form-wrap" id="form-container-box">
+                    <form id="riba-contact-form" class="riba-form">
+                        <div class="form-row-2">
+                            <div class="form-group"><label class="form-label" data-en="Full Name" data-ar="الاسم الكامل">Full Name</label><input type="text" id="form-name" class="form-input" required></div>
+                            <div class="form-group"><label class="form-label" data-en="Email" data-ar="البريد الإلكتروني">Email</label><input type="email" id="form-email" class="form-input" required></div>
                         </div>
-                        
-                        <div class="brand-showcase-panel">
-                            <img src="assets/logo.svg" alt="PRIMEBIT Logo" class="showcase-mini-logo">
-                            <div class="showcase-caption">
-                                <strong>PRIMEBIT</strong>
-                                <span data-en="We grow together, connecting code & progress." data-ar="ننمو معاً، نربط الكود بالتقدم.">We grow together, connecting code & progress.</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form-wrapper" id="form-container-box">
-                        <form id="riba-contact-form" class="riba-form">
-                            <div class="form-row-2">
-                                <div class="form-group">
-                                    <label class="form-label" data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
-                                    <input type="text" id="form-name" class="form-input" required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" data-en="Email Address" data-ar="البريد الإلكتروني">Email Address</label>
-                                    <input type="email" id="form-email" class="form-input" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" data-en="Phone / WhatsApp" data-ar="الهاتف / واتساب">Phone / WhatsApp</label>
-                                <input type="text" id="form-phone" class="form-input">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" data-en="Project Subject" data-ar="موضوع المشروع">Project Subject</label>
-                                <input type="text" id="form-subject" class="form-input" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" data-en="Tell Us About Your Project" data-ar="أخبرنا عن مشروعك">Tell Us About Your Project</label>
-                                <textarea id="form-message" class="form-textarea" rows="5" required></textarea>
-                            </div>
-                            <div class="form-status" id="form-status-msg"></div>
-                            <button type="submit" class="btn btn-primary btn-block btn-lg" id="btn-submit-contact">
-                                <span data-en="Send Message" data-ar="إرسال الرسالة">Send Message</span>
-                                <i class="fa-solid fa-paper-plane icon-btn"></i>
-                            </button>
-                        </form>
-                        
-                        <div class="terminal-overlay hidden" id="terminal-confirmation-overlay">
-                            <div class="terminal-header">
-                                <span class="terminal-dot red"></span>
-                                <span class="terminal-dot yellow"></span>
-                                <span class="terminal-dot green"></span>
-                                <span class="terminal-title">inquiry_submission.sh</span>
-                            </div>
-                            <div class="terminal-body" id="terminal-confirmation-body"></div>
-                        </div>
+                        <div class="form-group"><label class="form-label" data-en="Phone / WhatsApp" data-ar="الهاتف / واتساب">Phone / WhatsApp</label><input type="text" id="form-phone" class="form-input"></div>
+                        <div class="form-group"><label class="form-label" data-en="Project Subject" data-ar="موضوع المشروع">Project Subject</label><input type="text" id="form-subject" class="form-input" required></div>
+                        <div class="form-group"><label class="form-label" data-en="Tell Us About Your Project" data-ar="أخبرنا عن مشروعك">Tell Us About Your Project</label><textarea id="form-message" class="form-textarea" rows="5" required></textarea></div>
+                        <div class="form-status" id="form-status-msg"></div>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg" id="btn-submit-contact"><span data-en="Send Message" data-ar="إرسال الرسالة">Send Message</span><i class="fa-solid fa-paper-plane icon-btn"></i></button>
+                    </form>
+                    <div class="terminal-overlay hidden" id="terminal-confirmation-overlay">
+                        <div class="code-bar"><span class="cdot red"></span><span class="cdot yellow"></span><span class="cdot green"></span><span class="code-file">inquiry.sh</span></div>
+                        <div class="terminal-body" id="terminal-confirmation-body"></div>
                     </div>
                 </div>
             </div>
@@ -794,51 +359,29 @@
 
     <!-- ====== FOOTER ====== -->
     <footer class="main-footer">
-        <div class="container footer-container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="#hero" class="logo">
-                        <img src="assets/logo.svg" alt="PRIMEBIT Logo" class="logo-img">
-                        <span class="logo-text">PRIME<span class="accent-text">BIT</span></span>
-                    </a>
-                    <p class="footer-brand-desc" data-en="Connecting code, systems, and performance. We engineer premium software solutions tailored to scale business values globally." data-ar="نربط الكود بالأنظمة والأداء. نهندس حلولاً برمجية متميزة مصممة لتوسيع قيم الأعمال عالمياً.">Connecting code, systems, and performance.</p>
-                </div>
-                <div class="footer-links-grid">
-                    <div class="links-column">
-                        <h4 class="column-title" data-en="Company" data-ar="الشركة">Company</h4>
-                        <ul class="column-list">
-                            <li><a href="#hero" data-en="Home" data-ar="الرئيسية">Home</a></li>
-                            <li><a href="#about" data-en="About Us" data-ar="من نحن">About Us</a></li>
-                            <li><a href="#services" data-en="Services" data-ar="الخدمات">Services</a></li>
-                            <li><a href="#portfolio" data-en="Portfolio" data-ar="أعمالنا">Portfolio</a></li>
-                        </ul>
-                    </div>
-                    <div class="links-column">
-                        <h4 class="column-title" data-en="Legal" data-ar="القانوني">Legal</h4>
-                        <ul class="column-list">
-                            <li><a href="privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a></li>
-                            <li><a href="#faq" data-en="FAQ" data-ar="الأسئلة الشائعة">FAQ</a></li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#hero" class="logo"><img src="assets/logo.svg" alt="PRIMEBIT" class="logo-img"><span class="logo-text">PRIME<span class="accent-text">BIT</span></span></a>
+                <p data-en="A web development & design studio. We connect ideas, design, and performance." data-ar="استوديو لتطوير وتصميم المواقع. نربط الأفكار بالتصميم والأداء.">A web development & design studio.</p>
             </div>
-            <div class="footer-bottom">
-                <p class="copyright-text">© 2026 PRIMEBIT. <span data-en="All Rights Reserved." data-ar="جميع الحقوق محفوظة.">All Rights Reserved.</span></p>
-                <div class="footer-socials">
-                    <a href="#" class="social-icon" aria-label="WhatsApp" id="footer-whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
-                    <!-- روابط السوشال ميديا — أزل التعليق وأضف الروابط عند جاهزيتها
-                    <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    -->
-                </div>
+            <div class="footer-cols">
+                <div class="footer-col"><h4 data-en="Company" data-ar="الشركة">Company</h4><a href="#about" data-en="About" data-ar="من نحن">About</a><a href="#services" data-en="Services" data-ar="الخدمات">Services</a><a href="#portfolio" data-en="Work" data-ar="أعمالنا">Work</a></div>
+                <div class="footer-col"><h4 data-en="Resources" data-ar="روابط">Resources</h4><a href="#faq" data-en="FAQ" data-ar="الأسئلة الشائعة">FAQ</a><a href="privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a><a href="#calculator" data-en="Pricing" data-ar="التسعير">Pricing</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>© 2026 PRIMEBIT. <span data-en="All Rights Reserved." data-ar="جميع الحقوق محفوظة.">All Rights Reserved.</span></p>
+            <div class="footer-socials">
+                <a href="#" class="social-icon" id="footer-whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <!-- روابط السوشال — فعّلها عند جاهزيتها
+                <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                -->
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button (shown when a number is configured) -->
-    <a href="#" class="whatsapp-float" id="whatsapp-float" style="display:none" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <a href="#" class="whatsapp-float" id="whatsapp-float" style="display:none" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 
     <script src="main.js"></script>
 </body>

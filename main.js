@@ -152,13 +152,13 @@ document.addEventListener('DOMContentLoaded', () => {
             arLabel.classList.toggle('active-lang', lang === 'ar');
         }
 
-        // Update hero title with gradient span preserved
+        // Update hero title (big display headline with { } braces)
         const heroTitle = document.getElementById('hero-main-title');
         if (heroTitle) {
             if (lang === 'ar') {
-                heroTitle.innerHTML = `<span>نبرمج ونبتكر</span><br><span class="text-gradient">الحلول البرمجية</span><span> والأنظمة الذكية</span>`;
+                heroTitle.innerHTML = `<span class="l1">نُصمّم ونُطوّر</span><span class="l2">تجارب ويب</span><span class="l3"><span class="brace">{</span>استثنائية<span class="brace">}</span></span>`;
             } else {
-                heroTitle.innerHTML = `<span>Engineering Premium</span><br><span class="text-gradient">Custom Software &</span><span> Smart Apps</span>`;
+                heroTitle.innerHTML = `<span class="l1">FUTURE-DRIVEN</span><span class="l2">WEB DESIGN &amp;</span><span class="l3"><span class="brace">{</span>DEVELOPMENT<span class="brace">}</span></span>`;
             }
         }
 
@@ -166,8 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const heroSub = document.getElementById('hero-subtitle');
         if (heroSub) {
             heroSub.textContent = lang === 'ar'
-                ? 'نهندس ونبرمج ونطلق حلولاً برمجية متكاملة، تطبيقات ويب عالية الأداء وأنظمة آمنة مصممة خصيصاً لنمو أعمالك الرقمية.'
-                : 'We design, engineer, and deploy premium software solutions, high-performance web applications, and secure systems tailored for digital growth.';
+                ? 'نصنع مواقع ومنتجات رقمية عالية الجودة تساعد الأعمال على النمو والتوسّع والتميّز في عالم سريع التغيّر.'
+                : 'We craft high-quality websites and digital products that help businesses grow, scale, and stand out in a fast-changing world.';
         }
 
         // Update form placeholders
@@ -461,16 +461,16 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (selectedType) {
             case 'web':
                 baseCost = 800; perPageCost = 80;
-                typeLabel = { en: 'Custom Web Application', ar: 'تطبيق ويب مخصص' }; break;
+                typeLabel = { en: 'Website', ar: 'موقع ويب' }; break;
             case 'ecommerce':
                 baseCost = 1200; perPageCost = 100;
-                typeLabel = { en: 'E-Commerce System', ar: 'نظام تجارة إلكترونية' }; break;
+                typeLabel = { en: 'E-Commerce Store', ar: 'متجر إلكتروني' }; break;
             case 'mobile':
                 baseCost = 1500; perPageCost = 120;
-                typeLabel = { en: 'Mobile Application', ar: 'تطبيق جوال' }; break;
+                typeLabel = { en: 'Web Application', ar: 'تطبيق ويب' }; break;
             case 'brokerage':
                 baseCost = 2200; perPageCost = 150;
-                typeLabel = { en: 'Custom Enterprise / FinTech Software', ar: 'برمجيات الشركات والتكنولوجيا المالية' }; break;
+                typeLabel = { en: 'Custom Platform', ar: 'منصة مخصصة' }; break;
         }
 
         if (pageCount <= 5) { minWeeks = 2; maxWeeks = 3; }
