@@ -114,6 +114,17 @@
         .remove { background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.25); color:var(--danger); border-radius:7px; padding:7px 12px; cursor:pointer; font-family:inherit; font-size:0.8rem; }
         .remove:hover { background:rgba(239,68,68,0.2); }
         .badge-owner { background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:var(--green); border-radius:20px; padding:2px 10px; font-size:0.72rem; }
+
+        /* Change password modal */
+        .pass-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.6); backdrop-filter:blur(4px); z-index:1200; display:none; align-items:center; justify-content:center; padding:24px; }
+        .pass-backdrop.open { display:flex; }
+        .pass-modal { background:#0C1017; border:1px solid var(--border); border-radius:16px; padding:28px; width:100%; max-width:400px; }
+        .pass-modal h3 { font-size:1.1rem; color:var(--bright); margin-bottom:8px; }
+        .pass-hint { font-size:.82rem; color:var(--muted); margin-bottom:18px; line-height:1.5; }
+        .pass-input { width:100%; background:rgba(255,255,255,.04); border:1px solid var(--border); border-radius:9px; padding:12px 14px; color:var(--bright); font-family:inherit; font-size:.95rem; outline:none; margin-bottom:12px; }
+        .pass-input:focus { border-color:var(--accent); }
+        .pass-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:8px; }
+        .btn-save-pass { background:var(--grad); color:#fff; border:none; border-radius:8px; padding:10px 20px; font-family:inherit; font-weight:700; cursor:pointer; }
     </style>
 </head>
 <body>
@@ -144,9 +155,25 @@
     <div id="dash-view" class="hidden">
         <div class="topbar">
             <div class="brand"><img src="assets/logo.svg" alt="PRIMEBIT"> لوحة التحكم</div>
-            <div style="display:flex; align-items:center; gap:14px;">
+            <div style="display:flex; align-items:center; gap:10px;">
                 <span class="who" id="who"></span>
+                <button class="logout" id="btn-change-pass" style="background:rgba(46,140,240,.12);border-color:rgba(46,140,240,.3);color:var(--accent)"><i class="fa-solid fa-key"></i> كلمة المرور</button>
                 <button class="logout" id="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> خروج</button>
+            </div>
+        </div>
+
+        <!-- Change password modal -->
+        <div class="pass-backdrop" id="pass-backdrop">
+            <div class="pass-modal">
+                <h3><i class="fa-solid fa-key" style="color:var(--accent)"></i> تغيير كلمة المرور</h3>
+                <p class="pass-hint">أدخل كلمة مرور جديدة (6 أحرف على الأقل). ستُطبَّق على حسابك فوراً.</p>
+                <input type="password" id="new-pass" class="pass-input" placeholder="كلمة المرور الجديدة" autocomplete="new-password">
+                <input type="password" id="new-pass2" class="pass-input" placeholder="تأكيد كلمة المرور" autocomplete="new-password">
+                <div class="msg" id="pass-msg" style="text-align:right"></div>
+                <div class="pass-actions">
+                    <button class="refresh" id="btn-pass-cancel">إلغاء</button>
+                    <button class="btn-save-pass" id="btn-pass-save"><i class="fa-solid fa-check"></i> حفظ</button>
+                </div>
             </div>
         </div>
 
@@ -454,10 +481,29 @@
             ['messages','leads','team'].forEach(p => $('panel-'+p).classList.toggle('hidden', p !== t.dataset.tab));
         }));
 
+        /* ---------- CHANGE PASSWORD ---------- */
+        function openPass(){ $('pass-backdrop').classList.add('open'); setMsg('pass-msg','',''); $('new-pass').value=''; $('new-pass2').value=''; $('new-pass').focus(); }
+        function closePass(){ $('pass-backdrop').classList.remove('open'); }
+        async function savePass(){
+            const p1 = $('new-pass').value, p2 = $('new-pass2').value;
+            if (p1.length < 6) return setMsg('pass-msg','كلمة المرور يجب أن تكون 6 أحرف على الأقل','err');
+            if (p1 !== p2) return setMsg('pass-msg','كلمتا المرور غير متطابقتين','err');
+            $('btn-pass-save').disabled = true;
+            const { error } = await sb.auth.updateUser({ password: p1 });
+            $('btn-pass-save').disabled = false;
+            if (error) return setMsg('pass-msg','تعذّر التغيير: ' + error.message, 'err');
+            setMsg('pass-msg','تم تغيير كلمة المرور بنجاح ✓','ok');
+            setTimeout(closePass, 1400);
+        }
+
         $('btn-login').addEventListener('click', doLogin);
         $('btn-signup').addEventListener('click', doSignup);
         $('btn-logout').addEventListener('click', doLogout);
         $('btn-add-member').addEventListener('click', addMember);
+        $('btn-change-pass').addEventListener('click', openPass);
+        $('btn-pass-cancel').addEventListener('click', closePass);
+        $('btn-pass-save').addEventListener('click', savePass);
+        $('pass-backdrop').addEventListener('click', e => { if(e.target === $('pass-backdrop')) closePass(); });
         $('login-pass').addEventListener('keydown', e => { if(e.key==='Enter') doLogin(); });
 
         checkSession();
