@@ -104,26 +104,42 @@
                 </div>
 
                 <div class="hero-right">
-                    <div class="code-window">
-                        <div class="code-bar">
-                            <span class="cdot red"></span><span class="cdot yellow"></span><span class="cdot green"></span>
-                            <span class="code-file">app.js</span>
-                            <span class="code-actions"><i class="fa-solid fa-rotate-right"></i><i class="fa-solid fa-play"></i></span>
-                        </div>
-                        <pre class="code-body"><code><span class="cl"><span class="c-kw">const</span> <span class="c-fn">build</span> = <span class="c-p">(</span>idea<span class="c-p">)</span> <span class="c-kw">=&gt;</span> <span class="c-p">{</span></span>
+                    <div class="hero-visual">
+                        <div class="code-window">
+                            <div class="code-bar">
+                                <span class="cdot red"></span><span class="cdot yellow"></span><span class="cdot green"></span>
+                                <span class="code-file">app.js</span>
+                                <span class="code-actions"><i class="fa-solid fa-rotate-right"></i><i class="fa-solid fa-ellipsis"></i></span>
+                            </div>
+                            <pre class="code-body"><code><span class="cl"><span class="c-kw">const</span> <span class="c-fn">build</span> = <span class="c-p">(</span>idea<span class="c-p">)</span> <span class="c-kw">=&gt;</span> <span class="c-p">{</span></span>
 <span class="cl">  <span class="c-kw">const</span> app = <span class="c-fn">createApp</span><span class="c-p">(</span><span class="c-str">'primebit'</span><span class="c-p">)</span>;</span>
 <span class="cl">  app.<span class="c-fn">design</span><span class="c-p">(</span><span class="c-p">{</span> clean: <span class="c-kw">true</span> <span class="c-p">}</span><span class="c-p">)</span>;</span>
 <span class="cl">  app.<span class="c-fn">develop</span><span class="c-p">(</span><span class="c-p">{</span> fast: <span class="c-kw">true</span> <span class="c-p">}</span><span class="c-p">)</span>;</span>
 <span class="cl">  <span class="c-kw">return</span> app.<span class="c-fn">launch</span><span class="c-p">(</span><span class="c-p">)</span>;</span>
 <span class="cl"><span class="c-p">}</span>;</span>
-<span class="cl"> </span>
 <span class="cl"><span class="c-cm">// ✔ Running flawlessly</span></span></code></pre>
-                        <div class="code-float">
-                            <span class="cf-title">performance</span>
-                            <span class="cf-val">99.9<span>%</span></span>
-                            <span class="cf-sub" data-en="Uptime &amp; Speed" data-ar="الأداء والسرعة">Uptime &amp; Speed</span>
+                            <div class="code-toolbar">
+                                <span class="ct-pill">Body</span>
+                                <span class="ct-btn"><b>B</b></span><span class="ct-btn"><i>I</i></span><span class="ct-btn"><u>U</u></span>
+                                <span class="ct-sep"></span>
+                                <span class="ct-btn">+</span><span class="ct-btn">/</span>
+                            </div>
                         </div>
-                        <div class="code-lock"><i class="fa-solid fa-lock"></i></div>
+
+                        <div class="css-card">
+                            <pre><code><span class="cl"><span class="c-sel">.app</span> <span class="c-p">{</span></span>
+<span class="cl">  <span class="c-prop">font-family</span>: <span class="c-str">'JetBrains Mono'</span>;</span>
+<span class="cl">  <span class="c-prop">font-size</span>: <span class="c-num">14px</span>;</span>
+<span class="cl">  <span class="c-prop">color</span>: <span class="c-num">#5BB0FF</span>;</span>
+<span class="cl">  <span class="c-prop">border-radius</span>: <span class="c-num">8px</span>;</span>
+<span class="cl"><span class="c-p">}</span></span></code></pre>
+                        </div>
+
+                        <div class="lock-widget">
+                            <div class="lock-box"><i class="fa-solid fa-lock"></i></div>
+                            <div class="lock-dots"><span></span><span></span><span></span><span></span></div>
+                        </div>
+                        <span class="connector"></span>
                     </div>
                 </div>
             </div>
