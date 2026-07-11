@@ -82,7 +82,8 @@ ul{list-style:none}
 .badge{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:100px;padding:7px 16px 7px 8px;font-size:.82rem;color:var(--text);margin-bottom:28px}
 .badge-icon{width:24px;height:24px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:#04122a}
 .hero-title{font-family:var(--font-display);font-weight:400;line-height:.92;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;color:#fff}
-.hero-title span{display:block;font-size:clamp(2.6rem,7vw,5.4rem)}
+.hero-title>span{display:block;font-size:clamp(2.6rem,7vw,5.4rem)}
+.hero-title .brace{display:inline}
 .hero-title .l1,.hero-title .l2{color:#E7EEF9}
 .hero-title .l3{color:#fff}
 .hero-title .brace{color:var(--blue-bright);text-shadow:0 0 24px rgba(91,176,255,.6)}
@@ -316,7 +317,7 @@ body.arabic-mode .logo-text,body.arabic-mode .section-title,body.arabic-mode .he
 body.arabic-mode .nav-link,body.arabic-mode .btn,body.arabic-mode .eyebrow,
 body.arabic-mode h1,body.arabic-mode h2,body.arabic-mode h3,body.arabic-mode h4{font-family:'Cairo',sans-serif}
 body.arabic-mode .hero-title{font-family:'Cairo',sans-serif;font-weight:900;line-height:1.15;letter-spacing:0}
-body.arabic-mode .hero-title span{font-size:clamp(2rem,6vw,4rem)}
+body.arabic-mode .hero-title>span{font-size:clamp(2rem,6vw,4rem)}
 body.arabic-mode .stat-n,body.arabic-mode .price-amount,body.arabic-mode .cf-val,body.arabic-mode .process-num{font-family:'Cairo',sans-serif}
 [dir=rtl] .about-copy .section-title,[dir=rtl] .about-copy .eyebrow{text-align:right}
 
