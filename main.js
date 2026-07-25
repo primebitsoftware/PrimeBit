@@ -32,6 +32,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!res.ok) throw new Error(`Supabase HTTP ${res.status}`);
     }
 
+    /* Visit tracking — logs one visit per browsing session (admin analytics).
+       Fails silently if the primebit_visits table isn't set up yet. */
+    async function trackVisit() {
+        try {
+            if (sessionStorage.getItem('pb_visit_logged')) return;
+            sessionStorage.setItem('pb_visit_logged', '1');
+            await saveToSupabase('primebit_visits', {
+                path: location.pathname,
+                referrer: document.referrer || null,
+                lang: localStorage.getItem('riba_lang') || 'en'
+            });
+        } catch (e) { /* table may not exist yet — ignore */ }
+    }
+    trackVisit();
+
     function getSettings() {
         try {
             return JSON.parse(localStorage.getItem(SETTINGS_KEY)) || {};

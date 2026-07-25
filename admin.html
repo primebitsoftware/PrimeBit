@@ -297,6 +297,22 @@
         let leadsData = [];
         let filterState = { messages:'all', leads:'all' };
         let unreadCounts = { messages:0, leads:0 };
+        let visitStats = { total:0, today:0, week:0 };
+
+        async function loadVisits() {
+            try {
+                const startToday = new Date(); startToday.setHours(0,0,0,0);
+                const weekAgo = new Date(Date.now() - 7*24*60*60*1000);
+                const countQ = (from) => {
+                    let q = sb.from('primebit_visits').select('*', { count:'exact', head:true });
+                    if (from) q = q.gte('created_at', from.toISOString());
+                    return q;
+                };
+                const [t, td, wk] = await Promise.all([countQ(null), countQ(startToday), countQ(weekAgo)]);
+                visitStats = { total: t.count||0, today: td.count||0, week: wk.count||0 };
+            } catch (e) { visitStats = { total:0, today:0, week:0 }; }
+            renderOverview();
+        }
 
         function setFilter(kind, status, btn) {
             filterState[kind] = status;
@@ -359,7 +375,7 @@
             $('login-view').classList.add('hidden');
             $('dash-view').classList.remove('hidden');
             $('who').textContent = currentEmail;
-            loadMessages(); loadLeads(); loadTeam();
+            loadMessages(); loadLeads(); loadTeam(); loadVisits();
         }
 
         /* ---------- DATA ---------- */
@@ -571,6 +587,11 @@
                 ...leadsData.map(l => ({ t:'lead', date:l.created_at, title:(typeAr[l.project_type]||l.project_type), sub:'$'+(l.estimated_price||0).toLocaleString(), isNew:l.status==='new' }))
             ].sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0,6);
             box.innerHTML = `
+                <div class="stats-bar">
+                    <div class="stat-chip accent"><div class="n">${visitStats.total.toLocaleString()}</div><div class="l"><i class="fa-solid fa-eye"></i> إجمالي الزيارات</div></div>
+                    <div class="stat-chip"><div class="n">${visitStats.today.toLocaleString()}</div><div class="l">زيارات اليوم</div></div>
+                    <div class="stat-chip"><div class="n">${visitStats.week.toLocaleString()}</div><div class="l">زيارات آخر 7 أيام</div></div>
+                </div>
                 <div class="stats-bar">
                     <div class="stat-chip"><div class="n">${totalM}</div><div class="l">إجمالي الرسائل</div></div>
                     <div class="stat-chip accent"><div class="n">${unreadM}</div><div class="l">رسائل جديدة</div></div>
