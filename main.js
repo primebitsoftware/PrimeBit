@@ -672,14 +672,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-                observer.unobserve(entry.target);
+                const el = entry.target;
+                el.classList.add('animate-in');
+                observer.unobserve(el);
+                // Clear the stagger delay after reveal so it doesn't slow hover transitions
+                const d = parseInt(el.style.transitionDelay) || 0;
+                setTimeout(() => { el.style.transitionDelay = ''; }, 700 + d);
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.service-card, .portfolio-item, .feature-item, .channel-card, .process-card').forEach(el => {
+    const revealSelector = '.service-card, .portfolio-item, .feature-item, .channel-card, .process-card, .stat, .cap-tab, .testimonial-card, .faq-item, .section-head, .glass-card, .calc-summary, .selector-card, .checkbox-card, .industry-card, .team-card';
+    // Stagger reveals per group so rows animate in sequence
+    const revealGroups = {};
+    document.querySelectorAll(revealSelector).forEach(el => {
         el.classList.add('animate-ready');
+        const key = el.className.split(' ')[0];
+        revealGroups[key] = (revealGroups[key] || 0);
+        el.style.transitionDelay = (Math.min(revealGroups[key], 5) * 70) + 'ms';
+        revealGroups[key]++;
         observer.observe(el);
     });
 
